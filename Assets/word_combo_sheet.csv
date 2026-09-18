@@ -1,0 +1,6 @@
+x,heat,air,transform,height,lifeform
+heat,x,fire,freeze,,fire_sprite
+air,fire,x,cloud,levitate,bird
+transform,freeze,cloud,x,tall,pig
+height,x,levitate,tall,x,x
+lifeform,fire_sprite,bird,pig,x,x
