@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Customer
   customerRoot: {fileID: 6656395985601684493}
   dialogueLines:
-  - HELLO
+  - HELLO THERE
   - THERE
 --- !u!1 &6656395985601684493
 GameObject:

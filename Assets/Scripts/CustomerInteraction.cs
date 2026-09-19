@@ -27,7 +27,7 @@ public class CustomerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +35,9 @@ public class CustomerInteraction : MonoBehaviour
         if(other.tag == "Kiosk")
         {
             in_range = true;
+
+            customer = customerManager.CurrentCustomer;
+
             Interact(customer.getRoot());
 
             dialogue.gameObject.SetActive(true);
@@ -48,8 +51,8 @@ public class CustomerInteraction : MonoBehaviour
         Transform objectTransform = customerRoot.transform;
 
         LookSmoothly(objectTransform);
-        this.GetComponent<FirstPersonController>().enabled = true;
 
+        this.GetComponent<FirstPersonController>().enabled = true;
         StartCustomerDialogue(customer);
 
     }
