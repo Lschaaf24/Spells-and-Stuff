@@ -3,10 +3,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using StarterAssets;
+using System.Collections.Generic;
 
 public class Spell_Cast : MonoBehaviour
 {
     private StarterAssetsInputs _input;
+    [SerializeField] private List<GameObject> spells; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,11 +34,8 @@ public class Spell_Cast : MonoBehaviour
 
                     if (Physics.Raycast(ray, out hit))
                     {
-                        Transform object_hit = hit.transform;
-                        if(!object_hit.GetComponent<LevitateEffect>() || !object_hit.GetComponent<Rigidbody>()) 
-                        {
-                            object_hit.AddComponent<LevitateEffect>();
-                        }
+                        GameObject.Instantiate(spells[0], hit.point, Quaternion.identity.normalized);
+                        
                     }
                     break;
                 case ("pig"):
