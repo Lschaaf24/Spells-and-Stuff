@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,11 +27,13 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    public void interact(InputAction.CallbackContext callbackContext)
+    public void OnInteract(InputValue value)
     {
         if (interactedObject == null) return;
 
-        if (interactedObject.tag == "book")
+        Debug.Log("Interacted with: " + interactedObject.name);
+
+        if (interactedObject.CompareTag("Book"))
         {
             BookBehaviors book = interactedObject.GetComponent<BookBehaviors>();
             book.OpenBook();
