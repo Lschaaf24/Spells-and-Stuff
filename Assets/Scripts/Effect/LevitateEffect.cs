@@ -7,7 +7,7 @@ public class LevitateEffect : MonoBehaviour
     private void Start()
     {
         GetComponent<Rigidbody>().useGravity = false;
-        GetComponent<Rigidbody>().AddForce(transform.up * 30, ForceMode.Force);       
+        GetComponent<Rigidbody>().AddForce(Vector3.up * 30, ForceMode.Force);       
     }
     private void Update()
     {

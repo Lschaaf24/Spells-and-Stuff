@@ -31,7 +31,6 @@ public class Spell_Combo : MonoBehaviour
                     if (words_table[0, j] == second_word) 
                     {
                         spell = words_table[i, j];
-                        Debug.Log(spell);
                     }
                 }
             }
