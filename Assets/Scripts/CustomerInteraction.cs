@@ -11,23 +11,23 @@ public class CustomerInteraction : MonoBehaviour
 {
 
     [SerializeField] private bool in_range = false;
+    [SerializeField] private CustomerManager customerManager;
     [SerializeField] private Customer customer;
-    private Transform playerCameraRoot;
+    [SerializeField] private Dialogue dialogue;
+
     Coroutine smoothMove = null;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //Interact(customer.getRoot());
+        customer = customerManager.CurrentCustomer;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (in_range)
-        {
-            Interact(customer.getRoot());
-        }
+      
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,19 +35,29 @@ public class CustomerInteraction : MonoBehaviour
         if(other.tag == "Kiosk")
         {
             in_range = true;
+            Interact(customer.getRoot());
+
+            dialogue.gameObject.SetActive(true);
         }
     }
 
     private void Interact(GameObject customerRoot)
     {
 
-
         this.GetComponent<FirstPersonController>().enabled = false;
         Transform objectTransform = customerRoot.transform;
 
         LookSmoothly(objectTransform);
+        this.GetComponent<FirstPersonController>().enabled = true;
 
+        StartCustomerDialogue(customer);
 
+    }
+
+    public void StartCustomerDialogue(Customer customer)
+    {
+        dialogue.gameObject.SetActive(true);
+        dialogue.StartDialogue(customer.DialogueLines);
     }
 
     private void LookSmoothly(Transform objectTransform)
