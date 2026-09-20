@@ -132,7 +132,6 @@ MonoBehaviour:
   dialogueLines:
   - HELLO THERE
   - I NEED HELP
-  - I NEED HELP
 --- !u!1 &6656395985601684493
 GameObject:
   m_ObjectHideFlags: 0
