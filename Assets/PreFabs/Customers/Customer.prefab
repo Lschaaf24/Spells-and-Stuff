@@ -131,7 +131,8 @@ MonoBehaviour:
   customerRoot: {fileID: 6656395985601684493}
   dialogueLines:
   - HELLO THERE
-  - THERE
+  - I NEED HELP
+  - I NEED HELP
 --- !u!1 &6656395985601684493
 GameObject:
   m_ObjectHideFlags: 0
