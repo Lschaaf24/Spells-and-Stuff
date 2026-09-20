@@ -12,7 +12,7 @@ public class Interaction : MonoBehaviour
 
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, interactionRange, interactableLayer))
@@ -36,7 +36,7 @@ public class Interaction : MonoBehaviour
         if (interactedObject.CompareTag("Book"))
         {
             BookBehaviors book = interactedObject.GetComponent<BookBehaviors>();
-            book.OpenBook();
+            book.BookInteraction();
         }
     }
 }
