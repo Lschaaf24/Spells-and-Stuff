@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 1249864257784219222}
   - component: {fileID: 5579442850257267455}
   - component: {fileID: 3255834446705796823}
-  m_Layer: 0
+  - component: {fileID: 3923768813848599355}
+  m_Layer: 6
   m_Name: Customer
   m_TagString: Customer
   m_Icon: {fileID: 0}
@@ -155,6 +156,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3923768813848599355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344100721619664760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2060b1f667f10cc47b81765a8644dd94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerInteraction
+  in_range: 0
+  customerManager: {fileID: 0}
+  customer: {fileID: 5579442850257267455}
+  dialogue: {fileID: 0}
 --- !u!1 &6656395985601684493
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 180225217549803996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CameraLERProot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

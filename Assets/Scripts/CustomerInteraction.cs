@@ -11,9 +11,12 @@ public class CustomerInteraction : MonoBehaviour
 {
 
     [SerializeField] private bool in_range = false;
-    [SerializeField] private CustomerManager customerManager;
-    [SerializeField] private Customer customer;
-    [SerializeField] private Dialogue dialogue;
+    private CustomerManager customerManager;
+    private Customer customer;
+    private Dialogue dialogue;
+
+    [SerializeField] private FirstPersonController firstPersonController;
+
 
     Coroutine smoothMove = null;
 
@@ -21,40 +24,23 @@ public class CustomerInteraction : MonoBehaviour
     void Start()
     {
         //Interact(customer.getRoot());
+        customerManager = FindFirstObjectByType<CustomerManager>();
+        firstPersonController = FindFirstObjectByType<FirstPersonController>();
+        dialogue = FindFirstObjectByType<Dialogue>();
+        Debug.Log(dialogue);
+        dialogue.gameObject.SetActive(false);
+    }
+
+    public void Interact(GameObject customerRoot)
+    {
         customer = customerManager.CurrentCustomer;
-    }
+        firstPersonController.enabled = false;
+        //Transform objectTransform = customerRoot.transform;
 
-    // Update is called once per frame
-    void Update()
-    {
+        LookSmoothly(customerRoot.transform);
 
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Kiosk")
-        {
-            in_range = true;
-
-            customer = customerManager.CurrentCustomer;
-
-            Interact(customer.getRoot());
-
-            dialogue.gameObject.SetActive(true);
-        }
-    }
-
-    private void Interact(GameObject customerRoot)
-    {
-
-        this.GetComponent<FirstPersonController>().enabled = false;
-        Transform objectTransform = customerRoot.transform;
-
-        LookSmoothly(objectTransform);
-
-        this.GetComponent<FirstPersonController>().enabled = true;
+        firstPersonController.enabled = true;
         StartCustomerDialogue(customer);
-
     }
 
     public void StartCustomerDialogue(Customer customer)
@@ -71,11 +57,11 @@ public class CustomerInteraction : MonoBehaviour
         lookat.y = transform.position.y;
 
         if (smoothMove == null)
-            smoothMove = StartCoroutine(LookAtSmoothly(transform, lookat, time));
+            smoothMove = StartCoroutine(LookAtSmoothly(firstPersonController.transform, lookat, time));
         else
         {
             StopCoroutine(smoothMove);
-            smoothMove = StartCoroutine(LookAtSmoothly(transform, lookat, time));
+            smoothMove = StartCoroutine(LookAtSmoothly(firstPersonController.transform, lookat, time));
         }
 
     }

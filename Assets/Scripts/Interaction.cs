@@ -38,5 +38,13 @@ public class Interaction : MonoBehaviour
             BookBehaviors book = interactedObject.GetComponent<BookBehaviors>();
             book.BookInteraction();
         }
+
+        if (interactedObject.CompareTag("Customer")){
+            Debug.Log("Interacted with customer");
+
+
+            CustomerInteraction customer = interactedObject.GetComponent<CustomerInteraction>();
+            customer.Interact(interactedObject);
+        }
     }
 }
