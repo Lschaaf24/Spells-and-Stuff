@@ -28,13 +28,17 @@ public class Spell_Cast : MonoBehaviour
             switch (GetComponent<Spell_Combo>().GetSpell()) 
             {
                 case("fire"):
+                    GameObject spell = Instantiate(spells[0], transform.position, Quaternion.identity.normalized);
                     break;
                 case ("levitate"):
                     Debug.Log("LEVITATE!");
 
                     if (Physics.Raycast(ray, out hit))
                     {
-                        GameObject.Instantiate(spells[0], hit.point, Quaternion.identity.normalized);
+                        GameObject spell = Instantiate(spells[0], hit.point, Quaternion.identity.normalized);
+                        AreaEffector ae = spell.GetComponent<AreaEffector>();
+                        ae.effect_type = typeof(LevitateEffect);
+
                         
                     }
                     break;
