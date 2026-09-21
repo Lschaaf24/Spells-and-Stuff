@@ -19,14 +19,10 @@ public class BurnEffect : Effect
         lifetime -= Time.deltaTime;
         if(lifetime < 0) 
         {
-            Destroy(this);
+            MaterialPropertyBlock props = new MaterialPropertyBlock();
+            props.SetColor("_BaseColor", Color.black);
+            GetComponent<MeshRenderer>().SetPropertyBlock(props);
         }
     }
 
-    private void OnDestroy()
-    {
-        MaterialPropertyBlock props = new MaterialPropertyBlock();
-        props.SetColor("_BaseColor", Color.black);
-        GetComponent<MeshRenderer>().SetPropertyBlock(props);
-    }
 }

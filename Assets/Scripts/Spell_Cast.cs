@@ -10,6 +10,8 @@ public class Spell_Cast : MonoBehaviour
 {
     private StarterAssetsInputs _input;
     [SerializeField] private List<GameObject> spells; 
+ 
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,7 +58,18 @@ public class Spell_Cast : MonoBehaviour
                         Destroy(hit.collider.gameObject);
                     }
                     break;
+                case ("tall"):
+                    if(Physics.Raycast(ray, out hit)) 
+                    {
+                        if (!hit.collider.gameObject.GetComponent<TallEffect>()) 
+                        {
+                            hit.collider.gameObject.AddComponent<TallEffect>();
+                        }
+                    }
+                    break;
             }
+            
+            
         }
     }
 }
