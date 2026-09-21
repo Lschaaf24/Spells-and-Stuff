@@ -14,7 +14,7 @@ public class CustomerInteraction : MonoBehaviour
     private Customer customer;
     private Dialogue dialogue;
     [SerializeField] private FirstPersonController firstPersonController;
-
+    private bool once = false;
 
     Coroutine smoothMove = null;
 
@@ -44,7 +44,20 @@ public class CustomerInteraction : MonoBehaviour
         dialogue.AddLines(newLines);*/
 
         firstPersonController.enabled = true;
-        StartCustomerDialogue(customer);
+
+        if (customerManager.won == true)
+        {
+            StartWinCustomerDialogue(customer);
+        }
+        else if (customerManager.won == false && customerManager.lose == true)
+        {
+            StartLoseCustomerDialogue(customer);
+        }
+        else if (customerManager.won == false && once == false)
+        {
+            StartCustomerDialogue(customer);
+        }
+
     }
 
     public void StartCustomerDialogue(Customer customer)
@@ -56,8 +69,15 @@ public class CustomerInteraction : MonoBehaviour
 
     public void StartWinCustomerDialogue(Customer customer)
     {
-        dialogue.gameObject.SetActive(true);
+        UIManager.instance.setCurrentState(UIState.dialogue);
         dialogue.StartDialogue(customer.WinDialogueLines);
+
+    }
+
+    public void StartLoseCustomerDialogue(Customer customer)
+    {
+        UIManager.instance.setCurrentState(UIState.dialogue);
+        dialogue.StartDialogue(customer.LoseDialogueLines);
 
     }
 

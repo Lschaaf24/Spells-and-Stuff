@@ -29,8 +29,8 @@ public class AreaEffector : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObject object_entered = other.gameObject;
-        
-        if (!object_entered.GetComponent(effect_type) || !object_entered.GetComponent<Rigidbody>())
+
+        if (object_entered.GetComponent(effect_type) == null && object_entered.TryGetComponent<Rigidbody>(out _))
         {
             effected_objects.Add(object_entered);
             object_entered.AddComponent(effect_type);
@@ -51,7 +51,9 @@ public class AreaEffector : MonoBehaviour
     {
         foreach(GameObject obj in effected_objects) 
         {
-            Destroy(obj.GetComponent(effect_type));
+            if (obj == null) continue;
+            var c = obj.GetComponent(effect_type);
+            if (c != null) Destroy(c);
         }
     }
 }

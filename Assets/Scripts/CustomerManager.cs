@@ -6,7 +6,8 @@ public class CustomerManager : MonoBehaviour
 {
     [SerializeField] private CustomerData[] customers;
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private bool CHECKER;
+    [SerializeField] public bool won = false;
+    [SerializeField] public bool lose = false;
     
     private Customer currentCustomer;
     public Customer CurrentCustomer => currentCustomer;
@@ -48,16 +49,33 @@ public class CustomerManager : MonoBehaviour
           {
 
               Debug.Log("SPELL ON CUSTOMER CAST");
-              if(currentCustomer.GetComponent<Effect>().GetEffectType() == customerWinCondition)
+              if(currentCustomer.GetComponent<Effect>().GetEffectType() == customerWinCondition && !won)
               {
                   Debug.Log("WIN");
-              }
+                
+                  currentCustomer.GetComponent<Rigidbody>().useGravity = false;
+               
+                won = true;
+                currentCustomer.GetComponent<CustomerInteraction>().Interact(currentCustomer.gameObject);
+                /* if (!dialogue_started)
+                 {
+                     currentCustomer.GetComponent<CustomerInteraction>().StartWinCustomerDialogue(currentCustomer);
+                     dialogue_started = true;
+                 }*/
+            /*    Destroy(currentCustomer.gameObject);
 
-                if (CHECKER)
-                {
-                    currentCustomer.GetComponent<CustomerInteraction>().StartWinCustomerDialogue(currentCustomer);
-                    CHECKER = false;
-                }
+                SpawnCustomer();*/
+
+            }
+            else
+            {
+                lose = true;
+                Debug.Log("LOSE");
+              /*  Destroy(currentCustomer.gameObject);
+                SpawnCustomer();*/
+            }
+
+               
 
 
           }

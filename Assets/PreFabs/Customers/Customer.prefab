@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5579442850257267455}
   - component: {fileID: 3255834446705796823}
   - component: {fileID: 3923768813848599355}
+  - component: {fileID: 4451213877191771460}
   m_Layer: 6
   m_Name: Customer
   m_TagString: Customer
@@ -134,6 +135,13 @@ MonoBehaviour:
   dialogueLines:
   - HELLO THERE
   - I NEED HELP
+  - I need to reach the top shelf at my house.
+  - Find a spell to help me.
+  winDialogueLines:
+  - WOW IM FLYING....
+  - How long does this last?
+  loseDialogueLines:
+  - WRONG
 --- !u!95 &3255834446705796823
 Animator:
   serializedVersion: 7
@@ -142,7 +150,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344100721619664760}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4af4036d0d1223141bb703951d6fe8a1, type: 2}
   m_CullingMode: 0
@@ -169,6 +177,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomerInteraction
   firstPersonController: {fileID: 0}
+--- !u!54 &4451213877191771460
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344100721619664760}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6656395985601684493
 GameObject:
   m_ObjectHideFlags: 0

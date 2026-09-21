@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5579442850257267455}
   - component: {fileID: -4122744167840732401}
   - component: {fileID: 2737961234458351688}
+  - component: {fileID: 8775470531398549651}
   m_Layer: 6
   m_Name: Frozen Customer
   m_TagString: Customer
@@ -136,6 +137,7 @@ MonoBehaviour:
   - Can you find a spell to heat me up?
   winDialogueLines:
   - THANKS
+  loseDialogueLines: []
 --- !u!95 &-4122744167840732401
 Animator:
   serializedVersion: 7
@@ -171,6 +173,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomerInteraction
   firstPersonController: {fileID: 0}
+--- !u!54 &8775470531398549651
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344100721619664760}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6656395985601684493
 GameObject:
   m_ObjectHideFlags: 0

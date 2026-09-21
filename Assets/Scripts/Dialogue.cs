@@ -94,13 +94,6 @@ public class Dialogue : MonoBehaviour
         isTyping = false;
     }
 
-   /* public void AddLines(string[] dialogueLines)
-    {
-        
-        lines = 
-
-    }*/
-
 
 
 }
