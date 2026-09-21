@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4328305376013485519}
   - component: {fileID: 4099973140028294554}
   - component: {fileID: -2647834086542545465}
+  - component: {fileID: 2943503160064103033}
   m_Layer: 0
   m_Name: Levitation_Spell
   m_TagString: Untagged
@@ -4861,3 +4862,15 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!114 &2943503160064103033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211603850599053204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d485592a44ccb244c93021e8ea6e55a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AreaEffector

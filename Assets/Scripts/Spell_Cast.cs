@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using StarterAssets;
 using System.Collections.Generic;
+using Unity.AppUI.Core;
 
 public class Spell_Cast : MonoBehaviour
 {
@@ -25,17 +26,23 @@ public class Spell_Cast : MonoBehaviour
         {
             Debug.Log("CAST SPELL!");
             _input.cast = false;
+            GameObject spell;
             switch (GetComponent<Spell_Combo>().GetSpell()) 
             {
                 case("fire"):
-                    GameObject spell = Instantiate(spells[0], transform.position, Quaternion.identity.normalized);
+                    spell = Instantiate(spells[1], transform.position, Quaternion.identity.normalized);
+                    Projectile proj = spell.GetComponent<Projectile>();
+                    proj.direction = ray.direction;
+                    proj.effect_type = typeof(BurnEffect);
+                    spell.transform.position += 2 * proj.direction;
+
                     break;
                 case ("levitate"):
                     Debug.Log("LEVITATE!");
 
                     if (Physics.Raycast(ray, out hit))
                     {
-                        GameObject spell = Instantiate(spells[0], hit.point, Quaternion.identity.normalized);
+                        spell = Instantiate(spells[0], hit.point, Quaternion.identity.normalized);
                         AreaEffector ae = spell.GetComponent<AreaEffector>();
                         ae.effect_type = typeof(LevitateEffect);
 
@@ -43,6 +50,11 @@ public class Spell_Cast : MonoBehaviour
                     }
                     break;
                 case ("pig"):
+                    if (Physics.Raycast(ray, out hit)) 
+                    {
+                        spell = Instantiate(spells[2], hit.collider.transform.position, Quaternion.identity.normalized);
+                        Destroy(hit.collider.gameObject);
+                    }
                     break;
             }
         }
