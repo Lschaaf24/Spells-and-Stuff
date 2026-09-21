@@ -13,7 +13,6 @@ public class CustomerInteraction : MonoBehaviour
     private CustomerManager customerManager;
     private Customer customer;
     private Dialogue dialogue;
-
     [SerializeField] private FirstPersonController firstPersonController;
 
 
@@ -27,6 +26,10 @@ public class CustomerInteraction : MonoBehaviour
         firstPersonController = FindFirstObjectByType<FirstPersonController>();
         dialogue = FindFirstObjectByType<Dialogue>();
         Debug.Log(dialogue);
+        dialogue.gameObject.SetActive(false);
+
+      /*  string[] newLines = { "THANKS", "FOR THAT" };
+        dialogue.AddLines(newLines);*/
 
     }
 
@@ -34,9 +37,11 @@ public class CustomerInteraction : MonoBehaviour
     {
         customer = customerManager.CurrentCustomer;
         firstPersonController.enabled = false;
-        //Transform objectTransform = customerRoot.transform;
+        Transform objectTransform = customerRoot.GetComponent<Customer>().getRoot().transform;
 
-        LookSmoothly(customerRoot.transform);
+        //LookSmoothly(objectTransform);
+ /*       string[] newLines = { "THANKS", "FOR THAT" };
+        dialogue.AddLines(newLines);*/
 
         firstPersonController.enabled = true;
         StartCustomerDialogue(customer);
@@ -46,14 +51,25 @@ public class CustomerInteraction : MonoBehaviour
     {
         UIManager.instance.setCurrentState(UIState.dialogue);
         dialogue.StartDialogue(customer.DialogueLines);
+
     }
 
-    private void LookSmoothly(Transform objectTransform)
+    public void StartWinCustomerDialogue(Customer customer)
+    {
+        dialogue.gameObject.SetActive(true);
+        dialogue.StartDialogue(customer.WinDialogueLines);
+
+    }
+
+
+    /*private void LookSmoothly(Transform objectTransform)
     {
         float time = 1f;
 
         Vector3 lookat = objectTransform.position;
         lookat.y = transform.position.y;
+
+
 
         if (smoothMove == null)
             smoothMove = StartCoroutine(LookAtSmoothly(firstPersonController.transform, lookat, time));
@@ -82,7 +98,10 @@ public class CustomerInteraction : MonoBehaviour
         }
 
 
-    }
+        firstPersonController.transform.rotation = Quaternion.Euler(0,firstPersonController.transform.rotation.eulerAngles.y,0);
+
+
+    }*/
 
 
 }

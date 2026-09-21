@@ -4,13 +4,15 @@ public class Customer : MonoBehaviour
 {
     [SerializeField]private GameObject customerRoot;
     [SerializeField] private string[] dialogueLines;
+    [SerializeField] private string[] winDialogueLines;
 
     public string[] DialogueLines => dialogueLines;
+    public string[] WinDialogueLines => winDialogueLines;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -23,5 +25,10 @@ public class Customer : MonoBehaviour
     {
         return customerRoot;
     }
+
+
+
+
+
 
 }

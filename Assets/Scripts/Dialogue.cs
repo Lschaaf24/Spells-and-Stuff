@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
+using System;
 
 public class Dialogue : MonoBehaviour
 {
@@ -92,4 +93,14 @@ public class Dialogue : MonoBehaviour
 
         isTyping = false;
     }
+
+   /* public void AddLines(string[] dialogueLines)
+    {
+        
+        lines = 
+
+    }*/
+
+
+
 }

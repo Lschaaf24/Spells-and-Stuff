@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: Assembly-CSharp::CustomerData
   prefab: {fileID: 1344100721619664760, guid: dfd59467273b68347a73c8e5527be5a4, type: 3}
+  Spell: fire
