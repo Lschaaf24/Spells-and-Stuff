@@ -16,11 +16,12 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         transform.position += direction * speed * Time.deltaTime;
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.GetComponent(effect_type)) 
+        if (!other.gameObject.GetComponent(effect_type) && other.gameObject.GetComponent<Rigidbody>()) 
         {
             other.gameObject.AddComponent(effect_type);
         }

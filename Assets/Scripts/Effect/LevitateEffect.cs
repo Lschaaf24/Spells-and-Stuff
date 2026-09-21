@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LevitateEffect : MonoBehaviour
+public class LevitateEffect : Effect
 {
     
     float lifetime = 0;
@@ -8,6 +8,7 @@ public class LevitateEffect : MonoBehaviour
     Rigidbody rb;
     private void Start()
     {
+        effect_type = "levitate";
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = false;
         rb.useGravity = false;
