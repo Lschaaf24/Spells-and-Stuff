@@ -6,7 +6,6 @@ public class BookBehaviors : MonoBehaviour
 {
     [SerializeField] private BookContents bookContents;
     [SerializeField] private GameObject book;
-    [SerializeField] private FirstPersonController playerController;
 
     private TextMeshProUGUI bText;
 
@@ -31,21 +30,19 @@ public class BookBehaviors : MonoBehaviour
     private void OpenBook()
     {
         Debug.Log("Book opened: " + bookContents.paragraphText);
-        book.SetActive(true);
-        playerController.enabled = false;
+
+        UIManager.instance.setCurrentState(UIState.book);
 
         bText.text = bookContents.paragraphText;
 
-
-        Cursor.lockState = CursorLockMode.None;
     }
 
     private void CloseBook()
     {
         Debug.Log("Book closed");
         Cursor.lockState = CursorLockMode.Locked;
-        book.SetActive(false);
-        playerController.enabled = true;
+
+        UIManager.instance.setCurrentState(UIState.play);
     }
 
 }
