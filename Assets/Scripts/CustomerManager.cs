@@ -44,24 +44,24 @@ public class CustomerManager : MonoBehaviour
 
     public void checkSpell()
     {
-        /*  if (currentCustomer.GetComponent<>() != null)
+          if (currentCustomer.GetComponent<Effect>() != null)
           {
 
               Debug.Log("SPELL ON CUSTOMER CAST");
-              if(currentCustomer.GetComponent<Spell_Cast>() == customerWinCondition)
+              if(currentCustomer.GetComponent<Effect>().GetEffectType() == customerWinCondition)
               {
                   Debug.Log("WIN");
               }
 
+                if (CHECKER)
+                {
+                    currentCustomer.GetComponent<CustomerInteraction>().StartWinCustomerDialogue(currentCustomer);
+                    CHECKER = false;
+                }
 
 
-          }*/
+          }
 
-        if (CHECKER)
-        {
-            currentCustomer.GetComponent<CustomerInteraction>().StartWinCustomerDialogue(currentCustomer);
-            CHECKER = false;
-        }
 
 
     }
