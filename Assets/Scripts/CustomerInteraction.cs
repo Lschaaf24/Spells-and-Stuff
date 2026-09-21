@@ -14,7 +14,6 @@ public class CustomerInteraction : MonoBehaviour
     private CustomerManager customerManager;
     private Customer customer;
     private Dialogue dialogue;
-
     [SerializeField] private FirstPersonController firstPersonController;
 
 
@@ -35,9 +34,9 @@ public class CustomerInteraction : MonoBehaviour
     {
         customer = customerManager.CurrentCustomer;
         firstPersonController.enabled = false;
-        //Transform objectTransform = customerRoot.transform;
+        Transform objectTransform = customerRoot.GetComponent<Customer>().getRoot().transform;
 
-        LookSmoothly(customerRoot.transform);
+        LookSmoothly(objectTransform);
 
         firstPersonController.enabled = true;
         StartCustomerDialogue(customer);
@@ -55,6 +54,8 @@ public class CustomerInteraction : MonoBehaviour
 
         Vector3 lookat = objectTransform.position;
         lookat.y = transform.position.y;
+
+
 
         if (smoothMove == null)
             smoothMove = StartCoroutine(LookAtSmoothly(firstPersonController.transform, lookat, time));
@@ -81,6 +82,9 @@ public class CustomerInteraction : MonoBehaviour
                 Quaternion.Lerp(currentRot, newRot, counter / duration);
             yield return null;
         }
+
+
+        Quaternion newRotation = Quaternion.Euler(0,firstPersonController.transform.rotation.eulerAngles.y,0);
 
 
     }
