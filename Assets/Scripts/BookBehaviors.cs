@@ -1,24 +1,24 @@
 using StarterAssets;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class BookBehaviors : MonoBehaviour
 {
     [SerializeField] private BookContents bookContents;
-    [SerializeField] private GameObject bookText;
+    [SerializeField] private GameObject book;
     [SerializeField] private FirstPersonController playerController;
 
     private TextMeshProUGUI bText;
 
+
     private void Start()
     {
-        bText = bookText.GetComponentInChildren<TextMeshProUGUI>();
+        bText = book.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     public void BookInteraction()
     {
-        if (bookText.activeSelf)
+        if (book.activeSelf)
         {
             CloseBook();
         }
@@ -31,9 +31,12 @@ public class BookBehaviors : MonoBehaviour
     private void OpenBook()
     {
         Debug.Log("Book opened: " + bookContents.paragraphText);
-        bookText.SetActive(true);
+        book.SetActive(true);
         playerController.enabled = false;
+
         bText.text = bookContents.paragraphText;
+
+
         Cursor.lockState = CursorLockMode.None;
     }
 
@@ -41,7 +44,8 @@ public class BookBehaviors : MonoBehaviour
     {
         Debug.Log("Book closed");
         Cursor.lockState = CursorLockMode.Locked;
-        bookText.SetActive(false);
+        book.SetActive(false);
         playerController.enabled = true;
     }
+
 }

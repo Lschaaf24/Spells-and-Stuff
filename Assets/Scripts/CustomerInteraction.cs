@@ -10,7 +10,6 @@ using UnityEngine.Rendering;
 public class CustomerInteraction : MonoBehaviour
 {
 
-    [SerializeField] private bool in_range = false;
     private CustomerManager customerManager;
     private Customer customer;
     private Dialogue dialogue;

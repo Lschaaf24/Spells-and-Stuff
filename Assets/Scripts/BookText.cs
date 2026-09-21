@@ -1,8 +1,8 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class BookText : MonoBehaviour, IPointerClickHandler
 {
@@ -14,6 +14,8 @@ public class BookText : MonoBehaviour, IPointerClickHandler
     [SerializeField] private float finalScale = 0.1f;
 
     [SerializeField] private RectTransform spellTarget;
+
+    [SerializeField] private PlayerInput playerInput;
 
     [SerializeField] private float floatingWordScale = 1.3f;
     private bool isAnimating = false;
@@ -41,20 +43,21 @@ public class BookText : MonoBehaviour, IPointerClickHandler
     private IEnumerator CollectWord(string word, int linkIndex)
     {
         isAnimating = true;
-
+     
         Vector3 startPosition = GetLinkScreenPosition(linkIndex);
 
         Vector3 targetPosition = GetTargetScreenPosition();
 
         RemoveLinkFromText(word);
 
-        RectTransform floatingWord = CreateFloatingWord(word);   
+        RectTransform floatingWord = CreateFloatingWord(word);
 
         floatingWord.transform.position = startPosition;
         floatingWord.transform.localScale = Vector3.one * floatingWordScale;
 
         yield return StartCoroutine(FlyToSpellbook(floatingWord, startPosition, targetPosition));
 
+        playerInput.ActivateInput();
         Destroy(floatingWord.gameObject);
 
         isAnimating = false;
@@ -122,6 +125,7 @@ public class BookText : MonoBehaviour, IPointerClickHandler
         string after = text.Substring(contentEnd + closing.Length);
 
         bText.text = before + after;
+
     }
 
     private RectTransform CreateFloatingWord(string word)
@@ -149,6 +153,7 @@ public class BookText : MonoBehaviour, IPointerClickHandler
 
     private IEnumerator FlyToSpellbook(RectTransform word, Vector3 start, Vector3 target)
     {
+
         float time = 0f;
 
         Vector3 midpoint = Vector3.Lerp(start, target, 0.5f);
@@ -157,6 +162,8 @@ public class BookText : MonoBehaviour, IPointerClickHandler
 
         while (time < animationDuration)
         {
+            playerInput.DeactivateInput();
+
             time += Time.deltaTime;
 
             float t = Mathf.Clamp01(time / animationDuration);
@@ -182,5 +189,7 @@ public class BookText : MonoBehaviour, IPointerClickHandler
         word.position =
             target;
     }
+
+    
 
 }

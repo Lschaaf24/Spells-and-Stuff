@@ -43,9 +43,18 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Cast",
+                    "type": "Button",
+                    "id": "5f32de61-47c7-4ebb-91f7-434a733bb540",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Interact",
                     "type": "Button",
-                    "id": "1f4e4f1a-cbf1-4172-914c-e322a183d1ac",
+                    "id": "ebfc9c7f-42bd-4617-9ccb-1b1511d611aa",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -231,7 +240,18 @@
                 },
                 {
                     "name": "",
-                    "id": "07cf4695-4893-4d67-9883-a1128cd63e8f",
+                    "id": "6e6546e5-13b0-4468-b9fc-02387b21209a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyboardMouse",
+                    "action": "Cast",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f8b647d-d29c-4696-90d0-5a1a59269e44",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
