@@ -14,7 +14,6 @@ public class BookText : MonoBehaviour, IPointerClickHandler
     [SerializeField] private float finalScale = 0.1f;
 
     [SerializeField] private RectTransform spellTarget;
-
     [SerializeField] private PlayerInput playerInput;
 
     [SerializeField] private float floatingWordScale = 1.3f;
