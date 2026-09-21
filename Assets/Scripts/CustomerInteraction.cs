@@ -51,7 +51,16 @@ public class CustomerInteraction : MonoBehaviour
     {
         dialogue.gameObject.SetActive(true);
         dialogue.StartDialogue(customer.DialogueLines);
+
     }
+
+    public void StartWinCustomerDialogue(Customer customer)
+    {
+        dialogue.gameObject.SetActive(true);
+        dialogue.StartDialogue(customer.WinDialogueLines);
+
+    }
+
 
     /*private void LookSmoothly(Transform objectTransform)
     {

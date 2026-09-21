@@ -6,6 +6,7 @@ public class CustomerManager : MonoBehaviour
 {
     [SerializeField] private CustomerData[] customers;
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private bool CHECKER;
     
     private Customer currentCustomer;
     public Customer CurrentCustomer => currentCustomer;
@@ -43,18 +44,25 @@ public class CustomerManager : MonoBehaviour
 
     public void checkSpell()
     {
-      /*  if (currentCustomer.GetComponent<>() != null)
+        /*  if (currentCustomer.GetComponent<>() != null)
+          {
+
+              Debug.Log("SPELL ON CUSTOMER CAST");
+              if(currentCustomer.GetComponent<Spell_Cast>() == customerWinCondition)
+              {
+                  Debug.Log("WIN");
+              }
+
+
+
+          }*/
+
+        if (CHECKER)
         {
+            currentCustomer.GetComponent<CustomerInteraction>().StartWinCustomerDialogue(currentCustomer);
+            CHECKER = false;
+        }
 
-            Debug.Log("SPELL ON CUSTOMER CAST");
-            if(currentCustomer.GetComponent<Spell_Cast>() == customerWinCondition)
-            {
-                Debug.Log("WIN");
-            }
-
-
-
-        }*/
 
     }
 

@@ -134,6 +134,8 @@ MonoBehaviour:
   dialogueLines:
   - IM FREEEEEEZING
   - Can you find a spell to heat me up?
+  winDialogueLines:
+  - THANKS
 --- !u!95 &-4122744167840732401
 Animator:
   serializedVersion: 7

@@ -94,27 +94,12 @@ public class Dialogue : MonoBehaviour
         isTyping = false;
     }
 
-    public void AddLines(string[] newLines)
+   /* public void AddLines(string[] dialogueLines)
     {
+        
+        lines = 
 
-      /*  for(int i = 0; i <= lines.Length; i++)
-        {
-            Debug.Log(lines.Length);
-            Array.Clear(lines,0,lines.Length - 1);
-            for (int j = 0; j < newLines.Length; j++)
-            {
-
-                lines[j] = newLines[j];
-                Debug.Log(newLines[j].ToString());
-            }
-        }*/
-
-
-
-
-
-      
-    }
+    }*/
 
 
 
