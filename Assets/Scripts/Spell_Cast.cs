@@ -9,8 +9,8 @@ using Unity.AppUI.Core;
 public class Spell_Cast : MonoBehaviour
 {
     private StarterAssetsInputs _input;
-    [SerializeField] private List<GameObject> spells; 
- 
+    [SerializeField] private List<GameObject> spells;
+    [SerializeField] private GameObject cop_prefab;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -64,6 +64,16 @@ public class Spell_Cast : MonoBehaviour
                         if (!hit.collider.gameObject.GetComponent<TallEffect>()) 
                         {
                             hit.collider.gameObject.AddComponent<TallEffect>();
+                        }
+                    }
+                    break;
+                case ("freeze"):
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        if (!hit.collider.gameObject.GetComponent<FreezeEffect>())
+                        {
+                            hit.collider.gameObject.AddComponent<FreezeEffect>().SpawnCop(cop_prefab);
+                            
                         }
                     }
                     break;
