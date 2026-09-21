@@ -27,7 +27,7 @@ public class CustomerInteraction : MonoBehaviour
         firstPersonController = FindFirstObjectByType<FirstPersonController>();
         dialogue = FindFirstObjectByType<Dialogue>();
         Debug.Log(dialogue);
-        dialogue.gameObject.SetActive(false);
+
     }
 
     public void Interact(GameObject customerRoot)
@@ -44,7 +44,7 @@ public class CustomerInteraction : MonoBehaviour
 
     public void StartCustomerDialogue(Customer customer)
     {
-        dialogue.gameObject.SetActive(true);
+        UIManager.instance.setCurrentState(UIState.dialogue);
         dialogue.StartDialogue(customer.DialogueLines);
     }
 
