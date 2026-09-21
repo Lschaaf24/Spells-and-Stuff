@@ -30,7 +30,7 @@ public class Spell_Cast : MonoBehaviour
             switch (GetComponent<Spell_Combo>().GetSpell()) 
             {
                 case("fire"):
-                    spell = Instantiate(spells[1], transform.position, Quaternion.identity.normalized);
+                    spell = Instantiate(spells[1], Camera.main.transform.position, Quaternion.identity.normalized);
                     Projectile proj = spell.GetComponent<Projectile>();
                     proj.direction = ray.direction;
                     proj.effect_type = typeof(BurnEffect);

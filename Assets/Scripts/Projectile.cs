@@ -20,7 +20,10 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.AddComponent(effect_type);
+        if (!other.gameObject.GetComponent(effect_type)) 
+        {
+            other.gameObject.AddComponent(effect_type);
+        }
         Destroy(gameObject);
     }
 }

@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c61ece42f7128948b788046a4b019ec, type: 3}
-  m_Name: FireBook
+  m_Name: AirBook
   m_EditorClassIdentifier: Assembly-CSharp::BookContents
-  paragraphText: This is a book about <link="FIRE"><color=#F73718>FIRE</color></link>
+  paragraphText: This is a book about <link="AIR"><color=#ADD8E6>AIR</color></link>

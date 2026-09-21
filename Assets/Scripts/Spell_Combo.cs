@@ -1,16 +1,19 @@
 using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spell_Combo : MonoBehaviour
 {
-    [SerializeField] string first_word;
-    [SerializeField] string second_word;
+    [SerializeField] string first_word = "";
+    [SerializeField] string second_word = "";
     [SerializeField] string spell;
 
     [SerializeField] TextAsset word_combo_asset;
     int words_count;
     string[,] words_table;
 
+    [SerializeField] TextMeshProUGUI word_ui;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,20 +24,7 @@ public class Spell_Combo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spell = "";
-        for (int i = 0; i < words_count; i++) 
-        {
-            if (words_table[i,0] == first_word) 
-            {
-                for (int j = 0; j < words_count; j++) 
-                {
-                    if (words_table[0, j] == second_word) 
-                    {
-                        spell = words_table[i, j];
-                    }
-                }
-            }
-        } 
+       
     }
 
     void CSVtoAray(TextAsset csv_file)
@@ -55,5 +45,48 @@ public class Spell_Combo : MonoBehaviour
     public string GetSpell() 
     {
         return spell;
+    }
+
+    public void SetWord(string word) 
+    {
+        word = word.ToLower();
+        if(first_word == "") 
+        {
+            first_word = word; 
+        }
+        else if(second_word == "") 
+        {
+            second_word = word;
+        }
+        else 
+        {
+            first_word = word;
+        }
+        FindSpell();
+        UpdateText();
+    }
+    
+
+    private void UpdateText()
+    {
+        word_ui.text = first_word + " + " + second_word + " = " + spell;
+    }
+
+    private void FindSpell()
+    {
+        spell = "";
+        for (int i = 0; i < words_count; i++)
+        {
+            if (words_table[i, 0] == first_word)
+            {
+                for (int j = 0; j < words_count; j++)
+                {
+                    if (words_table[0, j] == second_word)
+                    {
+                        spell = words_table[i, j];
+                    }
+                }
+            }
+        }
     }
 }
