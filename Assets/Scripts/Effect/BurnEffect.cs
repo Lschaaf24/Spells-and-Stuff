@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
 
-public class BurnEffect : MonoBehaviour
+public class BurnEffect : Effect
 {
-    [SerializeField] float lifetime = 2.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        effect_type = "fire";
         MaterialPropertyBlock props = new MaterialPropertyBlock();
         props.SetColor("_BaseColor", Color.red);
         GetComponent<MeshRenderer>().SetPropertyBlock(props);
@@ -19,14 +19,10 @@ public class BurnEffect : MonoBehaviour
         lifetime -= Time.deltaTime;
         if(lifetime < 0) 
         {
-            Destroy(this);
+            MaterialPropertyBlock props = new MaterialPropertyBlock();
+            props.SetColor("_BaseColor", Color.black);
+            GetComponent<MeshRenderer>().SetPropertyBlock(props);
         }
     }
 
-    private void OnDestroy()
-    {
-        MaterialPropertyBlock props = new MaterialPropertyBlock();
-        props.SetColor("_BaseColor", Color.black);
-        GetComponent<MeshRenderer>().SetPropertyBlock(props);
-    }
 }

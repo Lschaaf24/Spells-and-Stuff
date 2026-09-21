@@ -10,6 +10,8 @@ public class Spell_Cast : MonoBehaviour
 {
     private StarterAssetsInputs _input;
     [SerializeField] private List<GameObject> spells; 
+ 
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,7 +32,7 @@ public class Spell_Cast : MonoBehaviour
             switch (GetComponent<Spell_Combo>().GetSpell()) 
             {
                 case("fire"):
-                    spell = Instantiate(spells[1], transform.position, Quaternion.identity.normalized);
+                    spell = Instantiate(spells[1], Camera.main.transform.position, Quaternion.identity.normalized);
                     Projectile proj = spell.GetComponent<Projectile>();
                     proj.direction = ray.direction;
                     proj.effect_type = typeof(BurnEffect);
@@ -56,7 +58,18 @@ public class Spell_Cast : MonoBehaviour
                         Destroy(hit.collider.gameObject);
                     }
                     break;
+                case ("tall"):
+                    if(Physics.Raycast(ray, out hit)) 
+                    {
+                        if (!hit.collider.gameObject.GetComponent<TallEffect>()) 
+                        {
+                            hit.collider.gameObject.AddComponent<TallEffect>();
+                        }
+                    }
+                    break;
             }
+            
+            
         }
     }
 }

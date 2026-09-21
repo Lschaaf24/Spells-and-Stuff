@@ -14,10 +14,11 @@ public class BookText : MonoBehaviour, IPointerClickHandler
     [SerializeField] private float finalScale = 0.1f;
 
     [SerializeField] private RectTransform spellTarget;
-
     [SerializeField] private PlayerInput playerInput;
 
     [SerializeField] private float floatingWordScale = 1.3f;
+
+    [SerializeField] private GameObject spell_book;
     private bool isAnimating = false;
 
     private Canvas canvas;
@@ -38,6 +39,7 @@ public class BookText : MonoBehaviour, IPointerClickHandler
         TMP_LinkInfo linkInfo = bText.textInfo.linkInfo[linkIndex];
         string linkId = linkInfo.GetLinkID();
         StartCoroutine(CollectWord(linkId, linkIndex));
+        spell_book.GetComponent<Spell_Combo>().SetWord(linkId);
     }
 
     private IEnumerator CollectWord(string word, int linkIndex)

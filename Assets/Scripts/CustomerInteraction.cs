@@ -49,7 +49,7 @@ public class CustomerInteraction : MonoBehaviour
 
     public void StartCustomerDialogue(Customer customer)
     {
-        dialogue.gameObject.SetActive(true);
+        UIManager.instance.setCurrentState(UIState.dialogue);
         dialogue.StartDialogue(customer.DialogueLines);
 
     }

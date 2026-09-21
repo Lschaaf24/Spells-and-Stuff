@@ -72,7 +72,7 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            UIManager.instance.setCurrentState(UIState.play);
 
             Debug.Log("DIALOGUE FINISHED");
         }
