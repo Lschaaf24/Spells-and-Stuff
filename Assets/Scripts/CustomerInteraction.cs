@@ -35,7 +35,7 @@ public class CustomerInteraction : MonoBehaviour
         firstPersonController.enabled = false;
         Transform objectTransform = customerRoot.GetComponent<Customer>().getRoot().transform;
 
-        LookSmoothly(objectTransform);
+        //LookSmoothly(objectTransform);
 
         firstPersonController.enabled = true;
         StartCustomerDialogue(customer);
@@ -47,7 +47,7 @@ public class CustomerInteraction : MonoBehaviour
         dialogue.StartDialogue(customer.DialogueLines);
     }
 
-    private void LookSmoothly(Transform objectTransform)
+    /*private void LookSmoothly(Transform objectTransform)
     {
         float time = 1f;
 
@@ -86,7 +86,7 @@ public class CustomerInteraction : MonoBehaviour
         firstPersonController.transform.rotation = Quaternion.Euler(0,firstPersonController.transform.rotation.eulerAngles.y,0);
 
 
-    }
+    }*/
 
 
 }

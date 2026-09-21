@@ -142,7 +142,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344100721619664760}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4af4036d0d1223141bb703951d6fe8a1, type: 2}
   m_CullingMode: 0
@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2060b1f667f10cc47b81765a8644dd94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomerInteraction
-  in_range: 0
   firstPersonController: {fileID: 0}
 --- !u!1 &6656395985601684493
 GameObject:
