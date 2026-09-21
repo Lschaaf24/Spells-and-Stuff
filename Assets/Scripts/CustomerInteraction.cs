@@ -27,6 +27,10 @@ public class CustomerInteraction : MonoBehaviour
         dialogue = FindFirstObjectByType<Dialogue>();
         Debug.Log(dialogue);
         dialogue.gameObject.SetActive(false);
+
+      /*  string[] newLines = { "THANKS", "FOR THAT" };
+        dialogue.AddLines(newLines);*/
+
     }
 
     public void Interact(GameObject customerRoot)
@@ -36,6 +40,8 @@ public class CustomerInteraction : MonoBehaviour
         Transform objectTransform = customerRoot.GetComponent<Customer>().getRoot().transform;
 
         //LookSmoothly(objectTransform);
+ /*       string[] newLines = { "THANKS", "FOR THAT" };
+        dialogue.AddLines(newLines);*/
 
         firstPersonController.enabled = true;
         StartCustomerDialogue(customer);

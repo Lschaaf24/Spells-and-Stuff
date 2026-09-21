@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class CustomerManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class CustomerManager : MonoBehaviour
     
     private Customer currentCustomer;
     public Customer CurrentCustomer => currentCustomer;
+    private string customerWinCondition;
 
     void Start()
     {
@@ -24,8 +26,10 @@ public class CustomerManager : MonoBehaviour
         
         CustomerData data = customers[Random.Range(0,customers.Length)];
 
-
+        customerWinCondition = data.Spell;
         currentCustomer = Instantiate(data.prefab,spawnPoint).GetComponent<Customer>();
+
+        Debug.Log(customerWinCondition);
 
         
 
@@ -34,6 +38,24 @@ public class CustomerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        checkSpell();
     }
+
+    public void checkSpell()
+    {
+      /*  if (currentCustomer.GetComponent<>() != null)
+        {
+
+            Debug.Log("SPELL ON CUSTOMER CAST");
+            if(currentCustomer.GetComponent<Spell_Cast>() == customerWinCondition)
+            {
+                Debug.Log("WIN");
+            }
+
+
+
+        }*/
+
+    }
+
 }

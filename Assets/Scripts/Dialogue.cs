@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
+using System;
 
 public class Dialogue : MonoBehaviour
 {
@@ -92,4 +93,29 @@ public class Dialogue : MonoBehaviour
 
         isTyping = false;
     }
+
+    public void AddLines(string[] newLines)
+    {
+
+      /*  for(int i = 0; i <= lines.Length; i++)
+        {
+            Debug.Log(lines.Length);
+            Array.Clear(lines,0,lines.Length - 1);
+            for (int j = 0; j < newLines.Length; j++)
+            {
+
+                lines[j] = newLines[j];
+                Debug.Log(newLines[j].ToString());
+            }
+        }*/
+
+
+
+
+
+      
+    }
+
+
+
 }
