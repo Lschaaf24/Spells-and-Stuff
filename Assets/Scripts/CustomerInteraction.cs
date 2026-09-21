@@ -83,7 +83,7 @@ public class CustomerInteraction : MonoBehaviour
         }
 
 
-        Quaternion newRotation = Quaternion.Euler(0,firstPersonController.transform.rotation.eulerAngles.y,0);
+        firstPersonController.transform.rotation = Quaternion.Euler(0,firstPersonController.transform.rotation.eulerAngles.y,0);
 
 
     }
