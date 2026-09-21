@@ -47,4 +47,17 @@ public class Interaction : MonoBehaviour
             customer.Interact(interactedObject);
         }
     }
+
+    public void OnPause(InputValue value)
+    {
+        Debug.Log("paused");
+        if(UIManager.instance.currentState == UIState.pause)
+        {
+            UIManager.instance.setCurrentState(UIState.play);
+        }
+        else
+        {
+            UIManager.instance.setCurrentState(UIState.pause);
+        }
+    }
 }
