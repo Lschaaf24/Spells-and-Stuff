@@ -291,8 +291,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -230.00238, y: 14}
-  m_SizeDelta: {x: -802.5133, y: -148.4992}
+  m_AnchoredPosition: {x: -190.4886, y: 6.2981}
+  m_SizeDelta: {x: -637.7612, y: -113.0038}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &38051108
 MonoBehaviour:
@@ -502,9 +502,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomerManager
   customers:
+  - {fileID: 11400000, guid: c3a56910b21fdaa47b3355c7eb4196f1, type: 2}
   - {fileID: 11400000, guid: db84b3b5806aaf64788446444af105fc, type: 2}
   spawnPoint: {fileID: 982664431}
-  CHECKER: 0
+  won: 0
+  lose: 0
 --- !u!4 &83960171
 Transform:
   m_ObjectHideFlags: 0
@@ -950,8 +952,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 437.8614, y: -264.46848}
-  m_SizeDelta: {x: -875.713, y: -528.9269}
+  m_AnchoredPosition: {x: 316, y: -252.1}
+  m_SizeDelta: {x: -649.6957, y: -534.7975}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &560813483
 PrefabInstance:
@@ -1118,16 +1120,12 @@ PrefabInstance:
       objectReference: {fileID: 1805020968}
     - target: {fileID: 5817166317606329190, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: spells.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5817166317606329190, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: 'spells.Array.data[3]'
       value: 
-      objectReference: {fileID: 7727364192060344405, guid: 2078c39d683e65149b489de57d7a174e, type: 3}
-    - target: {fileID: 5817166317606329190, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
-      propertyPath: 'spells.Array.data[4]'
-      value: 
-      objectReference: {fileID: 3027172704089527235, guid: c565ea8daec89e642b7908f646d89fa2, type: 3}
+      objectReference: {fileID: 7759832153350799463, guid: d2459ca20eeca90439b9cf30530bf578, type: 3}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Name
       value: PlayerCapsule
@@ -1869,7 +1867,7 @@ Transform:
   m_GameObject: {fileID: 1463448658}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.66, y: 1.71133, z: -6.16}
+  m_LocalPosition: {x: -13.74, y: 1.71133, z: -6.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2366,70 +2364,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812756377}
   m_CullTransparentMesh: 1
---- !u!1 &1844934796
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1844934798}
-  - component: {fileID: 1844934797}
-  m_Layer: 0
-  m_Name: NavMesh
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1844934797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1844934796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
---- !u!4 &1844934798
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1844934796}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.73866, y: 0.28, z: 1.66572}
-  m_LocalScale: {x: 2.3317, y: 2.3317, z: 2.3317}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1845285288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2579,7 +2513,6 @@ GameObject:
   - component: {fileID: 1861379896}
   - component: {fileID: 1861379895}
   - component: {fileID: 1861379894}
-  - component: {fileID: 1861379898}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -2681,38 +2614,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1861379898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1861379893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 8838ec48b40460e4cacd70ca44dc752c, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1001 &2049921188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2906,4 +2807,3 @@ SceneRoots:
   - {fileID: 1344463270}
   - {fileID: 1463448662}
   - {fileID: 51900959}
-  - {fileID: 1844934798}
