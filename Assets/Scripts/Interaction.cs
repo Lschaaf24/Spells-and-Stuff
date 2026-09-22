@@ -61,7 +61,6 @@ public class Interaction : MonoBehaviour
 
     public void OnPause(InputValue value)
     {
-        Debug.Log("paused");
         if(UIManager.instance.currentState == UIState.pause)
         {
             UIManager.instance.setCurrentState(UIState.play);
@@ -69,6 +68,19 @@ public class Interaction : MonoBehaviour
         else
         {
             UIManager.instance.setCurrentState(UIState.pause);
+        }
+    }
+
+    public void OnSpellBook(InputValue value)
+    {
+        Debug.Log("Spellbook opened");
+        if (UIManager.instance.currentState == UIState.spellcatalogue)
+        {
+            UIManager.instance.setCurrentState(UIState.play);
+        }
+        else
+        {
+            UIManager.instance.setCurrentState(UIState.spellcatalogue);
         }
     }
 
