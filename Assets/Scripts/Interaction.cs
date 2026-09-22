@@ -10,6 +10,14 @@ public class Interaction : MonoBehaviour
 
     private GameObject interactedObject;
 
+    [SerializeField] private Material outlineMaterial;
+
+    private Renderer objectRenderer;
+
+    private bool addedMaterial;
+    private bool removedMaterial;
+
+
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
@@ -19,11 +27,14 @@ public class Interaction : MonoBehaviour
         {
             textUI.SetActive(true);
             interactedObject = hit.collider.gameObject;
-
-        }else
+            AddOutlineMaterial();
+        }
+        else
         {
             textUI.SetActive(false);
             interactedObject = null;
+
+            RemoveOutlineMaterial();
         }
     }
 
@@ -59,5 +70,36 @@ public class Interaction : MonoBehaviour
         {
             UIManager.instance.setCurrentState(UIState.pause);
         }
+    }
+
+    void AddOutlineMaterial()
+    {
+        if (addedMaterial) return;
+
+        objectRenderer = interactedObject.GetComponent<Renderer>();
+
+        Material[] materialArray = new Material[objectRenderer.materials.Length + 1];
+        objectRenderer.materials.CopyTo(materialArray, 0);
+        materialArray[materialArray.Length - 1] = outlineMaterial;
+        objectRenderer.materials = materialArray;
+
+        addedMaterial = true;
+        removedMaterial = false;
+    }
+
+    void RemoveOutlineMaterial()
+    {
+        if (removedMaterial) return;
+        if (objectRenderer == null) return;
+
+        Material[] materialArray = new Material[objectRenderer.materials.Length - 1];
+        for (int i = 0; i < materialArray.Length - 1; i++)
+        {
+            materialArray[i] = objectRenderer.materials[i];
+        }
+        objectRenderer.materials = materialArray;
+
+        removedMaterial = true;
+        addedMaterial = false;
     }
 }
