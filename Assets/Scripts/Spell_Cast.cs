@@ -66,7 +66,7 @@ public class Spell_Cast : MonoBehaviour
                 case ("tall"):
                     if(Physics.Raycast(ray, out hit)) 
                     {
-                        if (!hit.collider.gameObject.GetComponent<TallEffect>()) 
+                        if (!hit.collider.gameObject.GetComponent<TallEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Interactable"))) 
                         {
                             hit.collider.gameObject.AddComponent<TallEffect>();
                         }
@@ -75,11 +75,18 @@ public class Spell_Cast : MonoBehaviour
                 case ("freeze"):
                     if (Physics.Raycast(ray, out hit))
                     {
-                        if (!hit.collider.gameObject.GetComponent<FreezeEffect>() && hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Interactable"))
+                        if (!hit.collider.gameObject.GetComponent<FreezeEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Interactable")))
                         {
                             GameObject cop = hit.collider.gameObject.AddComponent<FreezeEffect>().SpawnCop(cop_prefab);
                             cop.GetComponent<Cop>().SetDialgoueText(dialogue_text);
                         }
+                    }
+                    break;
+                case ("bird"):
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        spell = Instantiate(spells[3], hit.collider.transform.position, Quaternion.identity.normalized);
+                        Destroy(hit.collider.gameObject);
                     }
                     break;
             }
