@@ -27,6 +27,7 @@ public class Cop : MonoBehaviour
         if(dialogue_time < 0) 
         {
             UIManager.instance.setCurrentState(UIState.play);
+            Destroy(this);
         }
     }
 
