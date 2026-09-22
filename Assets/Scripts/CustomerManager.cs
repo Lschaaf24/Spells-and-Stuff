@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -8,11 +9,12 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] public bool won = false;
     [SerializeField] public bool lose = false;
-    
+    [SerializeField] private float respawntimer = 5;
     private Customer currentCustomer;
+    private Customer newCustomer;
     public Customer CurrentCustomer => currentCustomer;
     private string customerWinCondition;
-
+    private float timer = 0;
     void Start()
     {
         SpawnCustomer();
@@ -20,16 +22,22 @@ public class CustomerManager : MonoBehaviour
 
     private void SpawnCustomer()
     {
-
-        if(currentCustomer != null)
-        {
-            Destroy(currentCustomer);
-        }
-        
+        won = false;
+        lose = false;
+        timer = 0;
+        /* if(currentCustomer != null)
+         {
+             Destroy(currentCustomer);
+         }*/
         CustomerData data = customers[Random.Range(0,customers.Length)];
 
         customerWinCondition = data.Spell;
-        currentCustomer = Instantiate(data.prefab,spawnPoint).GetComponent<Customer>();
+        newCustomer = Instantiate(
+        data.prefab,
+        spawnPoint.position,
+        spawnPoint.rotation
+        ).GetComponent<Customer>();
+        currentCustomer = newCustomer;
 
         Debug.Log(customerWinCondition);
 
@@ -41,14 +49,37 @@ public class CustomerManager : MonoBehaviour
     void Update()
     {
         checkSpell();
+
+        if (won || lose)
+        {
+            timer += Time.deltaTime;
+        }
+
+        if(timer >= respawntimer)
+        {
+            RespawnCustomer();
+        }
+
+
+    }
+
+    private void RespawnCustomer()
+    {
+        if (currentCustomer != null)
+        {
+            Destroy(currentCustomer.gameObject);
+            currentCustomer = null;
+        }
+
+        SpawnCustomer();
     }
 
     public void checkSpell()
     {
           if (currentCustomer.GetComponent<Effect>() != null)
           {
+              
 
-              Debug.Log("SPELL ON CUSTOMER CAST");
               if(currentCustomer.GetComponent<Effect>().GetEffectType() == customerWinCondition && !won)
               {
                   Debug.Log("WIN");
@@ -62,17 +93,27 @@ public class CustomerManager : MonoBehaviour
                      currentCustomer.GetComponent<CustomerInteraction>().StartWinCustomerDialogue(currentCustomer);
                      dialogue_started = true;
                  }*/
-            /*    Destroy(currentCustomer.gameObject);
+                /*if(UIManager.instance.currentState != UIState.dialogue)
+                {
+                    Destroy(currentCustomer.gameObject);
 
-                SpawnCustomer();*/
+                    SpawnCustomer();
+                }*/
 
-            }
-            else
+              }
+            else if(currentCustomer.GetComponent<Effect>().GetEffectType() != customerWinCondition && !won)
             {
                 lose = true;
+                currentCustomer.GetComponent<CustomerInteraction>().Interact(currentCustomer.gameObject);
                 Debug.Log("LOSE");
-              /*  Destroy(currentCustomer.gameObject);
-                SpawnCustomer();*/
+                /*if (UIManager.instance.currentState != UIState.dialogue)
+                {
+                    Destroy(currentCustomer.gameObject);
+
+                    SpawnCustomer();
+                }*/
+                /*  Destroy(currentCustomer.gameObject);
+                    SpawnCustomer();*/
             }
 
                
