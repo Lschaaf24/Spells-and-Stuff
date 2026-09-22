@@ -446,8 +446,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CustomerManager
   customers:
   - {fileID: 11400000, guid: c3a56910b21fdaa47b3355c7eb4196f1, type: 2}
+  - {fileID: 11400000, guid: db84b3b5806aaf64788446444af105fc, type: 2}
   spawnPoint: {fileID: 982664431}
   won: 0
+  lose: 0
 --- !u!4 &83960171
 Transform:
   m_ObjectHideFlags: 0

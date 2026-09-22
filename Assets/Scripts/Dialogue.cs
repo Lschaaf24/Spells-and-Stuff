@@ -25,7 +25,7 @@ public class Dialogue : MonoBehaviour
         if (lines == null)
             return;
 
-        if (Mouse.current.rightButton.wasPressedThisFrame)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             Debug.Log("MOUSE CLICK");
 
