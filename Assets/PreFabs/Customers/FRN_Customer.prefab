@@ -144,6 +144,7 @@ MonoBehaviour:
   - How long does this last?
   loseDialogueLines:
   - WRONG
+  - Prick
   poof: {fileID: 3601945442856682321}
 --- !u!95 &3255834446705796823
 Animator:

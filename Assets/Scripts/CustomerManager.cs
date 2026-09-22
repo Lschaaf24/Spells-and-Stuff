@@ -103,7 +103,9 @@ public class CustomerManager : MonoBehaviour
               }
             else if(currentCustomer.GetComponent<Effect>().GetEffectType() != customerWinCondition && !won)
             {
+                currentCustomer.GetComponent<Rigidbody>().useGravity = false;
                 lose = true;
+
                 currentCustomer.GetComponent<CustomerInteraction>().Interact(currentCustomer.gameObject);
                 Debug.Log("LOSE");
                 /*if (UIManager.instance.currentState != UIState.dialogue)
@@ -114,6 +116,8 @@ public class CustomerManager : MonoBehaviour
                 }*/
                 /*  Destroy(currentCustomer.gameObject);
                     SpawnCustomer();*/
+                
+
             }
 
                
