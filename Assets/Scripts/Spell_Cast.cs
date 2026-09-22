@@ -5,12 +5,17 @@ using UnityEngine.InputSystem;
 using StarterAssets;
 using System.Collections.Generic;
 using Unity.AppUI.Core;
+using System;
+using TMPro;
+using Unity.InferenceEngine;
 
 public class Spell_Cast : MonoBehaviour
 {
     private StarterAssetsInputs _input;
     [SerializeField] private List<GameObject> spells;
     [SerializeField] private GameObject cop_prefab;
+
+    [SerializeField] private TextMeshProUGUI dialogue_text;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -70,10 +75,10 @@ public class Spell_Cast : MonoBehaviour
                 case ("freeze"):
                     if (Physics.Raycast(ray, out hit))
                     {
-                        if (!hit.collider.gameObject.GetComponent<FreezeEffect>())
+                        if (!hit.collider.gameObject.GetComponent<FreezeEffect>() && hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Interactable"))
                         {
-                            hit.collider.gameObject.AddComponent<FreezeEffect>().SpawnCop(cop_prefab);
-                            
+                            GameObject cop = hit.collider.gameObject.AddComponent<FreezeEffect>().SpawnCop(cop_prefab);
+                            cop.GetComponent<Cop>().SetDialgoueText(dialogue_text);
                         }
                     }
                     break;

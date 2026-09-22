@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cop : MonoBehaviour
 {
+    float dialogue_time = 3.0f;
     [SerializeField] TextMeshProUGUI dialogue_text;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,13 +16,22 @@ public class Cop : MonoBehaviour
             transform.position = hit.point;
         }
 
-        dialogue_text.transform.parent.gameObject.SetActive(true);
+        UIManager.instance.setCurrentState(UIState.dialogue);
         dialogue_text.text = "FREEZE!!!!";
 
     }
     // Update is called once per frame
     void Update()
     {
-        
+        dialogue_time -= Time.deltaTime;
+        if(dialogue_time < 0) 
+        {
+            UIManager.instance.setCurrentState(UIState.play);
+        }
+    }
+
+    public void SetDialgoueText(TextMeshProUGUI text) 
+    {
+        dialogue_text = text;
     }
 }
