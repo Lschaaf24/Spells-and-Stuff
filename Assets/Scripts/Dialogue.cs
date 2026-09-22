@@ -25,7 +25,7 @@ public class Dialogue : MonoBehaviour
         if (lines == null)
             return;
 
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current.rightButton.wasPressedThisFrame)
         {
             Debug.Log("MOUSE CLICK");
 
@@ -45,7 +45,7 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue(string[] dialogueLines)
     {
-        if (dialogueLines == null)
+        if (dialogueLines == null || isTyping == true)
         {
             Debug.LogWarning("Tried to start dialogue with no dialogue lines.");
             return;
