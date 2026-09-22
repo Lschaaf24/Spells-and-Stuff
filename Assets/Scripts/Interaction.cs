@@ -93,7 +93,7 @@ public class Interaction : MonoBehaviour
         if (objectRenderer == null) return;
 
         Material[] materialArray = new Material[objectRenderer.materials.Length - 1];
-        for (int i = 0; i < materialArray.Length - 1; i++)
+        for (int i = 0; i < materialArray.Length; i++)
         {
             materialArray[i] = objectRenderer.materials[i];
         }
