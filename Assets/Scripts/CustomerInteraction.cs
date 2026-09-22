@@ -14,7 +14,6 @@ public class CustomerInteraction : MonoBehaviour
     private Customer customer;
     private Dialogue dialogue;
     [SerializeField] private FirstPersonController firstPersonController;
-    private bool once = false;
 
     Coroutine smoothMove = null;
 
@@ -53,7 +52,7 @@ public class CustomerInteraction : MonoBehaviour
         {
             StartLoseCustomerDialogue(customer);
         }
-        else if (customerManager.won == false && once == false)
+        else if (customerManager.won == false && customerManager.lose == false)
         {
             StartCustomerDialogue(customer);
         }
