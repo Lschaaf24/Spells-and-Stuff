@@ -34,6 +34,7 @@ public class Spell_Cast : MonoBehaviour
             Debug.Log("CAST SPELL!");
             _input.cast = false;
             GameObject spell;
+            bool spell_cast = false;
             switch (GetComponent<Spell_Combo>().GetSpell()) 
             {
                 case("fire"):
@@ -42,6 +43,7 @@ public class Spell_Cast : MonoBehaviour
                     proj.direction = ray.direction;
                     proj.effect_type = typeof(BurnEffect);
                     spell.transform.position += 2 * proj.direction;
+                    spell_cast = true;
 
                     break;
                 case ("levitate"):
@@ -52,8 +54,9 @@ public class Spell_Cast : MonoBehaviour
                         spell = Instantiate(spells[0], hit.point, Quaternion.identity.normalized);
                         AreaEffector ae = spell.GetComponent<AreaEffector>();
                         ae.effect_type = typeof(LevitateEffect);
+                        spell_cast = true;
 
-                        
+
                     }
                     break;
                 case ("pig"):
@@ -61,6 +64,8 @@ public class Spell_Cast : MonoBehaviour
                     {
                         spell = Instantiate(spells[2], hit.collider.transform.position, Quaternion.identity.normalized);
                         Destroy(hit.collider.gameObject);
+                        spell_cast = true;
+
                     }
                     break;
                 case ("tall"):
@@ -69,6 +74,8 @@ public class Spell_Cast : MonoBehaviour
                         if (!hit.collider.gameObject.GetComponent<TallEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Interactable"))) 
                         {
                             hit.collider.gameObject.AddComponent<TallEffect>();
+                            spell_cast = true;
+
                         }
                     }
                     break;
@@ -79,6 +86,8 @@ public class Spell_Cast : MonoBehaviour
                         {
                             GameObject cop = hit.collider.gameObject.AddComponent<FreezeEffect>().SpawnCop(cop_prefab);
                             cop.GetComponent<Cop>().SetDialgoueText(dialogue_text);
+                            spell_cast = true;
+
                         }
                     }
                     break;
@@ -87,11 +96,26 @@ public class Spell_Cast : MonoBehaviour
                     {
                         spell = Instantiate(spells[3], hit.collider.transform.position, Quaternion.identity.normalized);
                         Destroy(hit.collider.gameObject);
+                        spell_cast = true;
+
                     }
                     break;
+                case ("cloud"):
+                    break;
+                case ("fire_sprite"):
+                    Debug.Log("FIRE SPRITE");
+                    spell = Instantiate(spells[4], Camera.main.transform.position , Quaternion.identity.normalized);
+                    spell.transform.position += 2 * ray.direction;
+                    spell.GetComponent<FollowPlayer>().SetTarget(this.transform.parent.gameObject);
+                    spell_cast = true;
+                    break;
             }
-            
-            
+
+
+            if (spell_cast)
+            {
+                GetComponent<Spell_Combo>().ResetWords();
+            }
         }
     }
 }
