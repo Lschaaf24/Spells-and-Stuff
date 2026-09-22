@@ -291,8 +291,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -230.00238, y: 14}
-  m_SizeDelta: {x: -802.5133, y: -148.4992}
+  m_AnchoredPosition: {x: -190.4886, y: 6.2981}
+  m_SizeDelta: {x: -637.7612, y: -113.0038}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &38051108
 MonoBehaviour:
@@ -952,8 +952,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 437.8614, y: -264.46848}
-  m_SizeDelta: {x: -875.713, y: -528.9269}
+  m_AnchoredPosition: {x: 316, y: -252.1}
+  m_SizeDelta: {x: -649.6957, y: -534.7975}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &560813483
 PrefabInstance:
@@ -1118,6 +1118,14 @@ PrefabInstance:
       propertyPath: dialogue_text
       value: 
       objectReference: {fileID: 1805020968}
+    - target: {fileID: 5817166317606329190, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: spells.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5817166317606329190, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: 'spells.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7759832153350799463, guid: d2459ca20eeca90439b9cf30530bf578, type: 3}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Name
       value: PlayerCapsule

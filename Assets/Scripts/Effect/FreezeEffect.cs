@@ -18,8 +18,9 @@ public class FreezeEffect : Effect
     
     }
 
-    public GameObject SpawnCop(GameObject cop_prefab) 
+    public GameObject SpawnCop(GameObject cop_prefab, GameObject freezeParticle) 
     {
+        Instantiate(freezeParticle, transform.position - new Vector3(0,1,0), Quaternion.LookRotation(transform.up));
         GameObject cop = Instantiate(cop_prefab, transform.position + (Vector3.left * 3), Quaternion.identity.normalized);
         cop.transform.LookAt(transform.position);
         return cop;

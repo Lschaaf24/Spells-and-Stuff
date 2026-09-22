@@ -14,7 +14,6 @@ public class Spell_Cast : MonoBehaviour
     private StarterAssetsInputs _input;
     [SerializeField] private List<GameObject> spells;
     [SerializeField] private GameObject cop_prefab;
-
     [SerializeField] private TextMeshProUGUI dialogue_text;
 
 
@@ -77,7 +76,7 @@ public class Spell_Cast : MonoBehaviour
                     {
                         if (!hit.collider.gameObject.GetComponent<FreezeEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Interactable")))
                         {
-                            GameObject cop = hit.collider.gameObject.AddComponent<FreezeEffect>().SpawnCop(cop_prefab);
+                            GameObject cop = hit.collider.gameObject.AddComponent<FreezeEffect>().SpawnCop(cop_prefab, spells[3]);
                             cop.GetComponent<Cop>().SetDialgoueText(dialogue_text);
                         }
                     }
