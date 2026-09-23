@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CustomerData
   prefab: {fileID: 1344100721619664760, guid: 5b4a0c8cf293e1b42933ffa784d20ab5, type: 3}
   Spell: pig
+  SecondSpell: pig

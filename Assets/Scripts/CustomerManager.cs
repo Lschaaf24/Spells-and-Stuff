@@ -14,6 +14,7 @@ public class CustomerManager : MonoBehaviour
     private Customer newCustomer;
     public Customer CurrentCustomer => currentCustomer;
     private string customerWinCondition;
+    private string secondCustomerWinCondition;
     private float timer = 0;
     void Start()
     {
@@ -32,6 +33,7 @@ public class CustomerManager : MonoBehaviour
         CustomerData data = customers[Random.Range(0,customers.Length)];
 
         customerWinCondition = data.Spell;
+        secondCustomerWinCondition = data.SecondSpell;
         newCustomer = Instantiate(
         data.prefab,
         spawnPoint.position,
@@ -39,7 +41,7 @@ public class CustomerManager : MonoBehaviour
         ).GetComponent<Customer>();
         currentCustomer = newCustomer;
 
-        Debug.Log(customerWinCondition);
+        Debug.Log(secondCustomerWinCondition);
 
         
 
@@ -80,7 +82,7 @@ public class CustomerManager : MonoBehaviour
           {
               
 
-              if(currentCustomer.GetComponent<Effect>().GetEffectType() == customerWinCondition && !won)
+              if((currentCustomer.GetComponent<Effect>().GetEffectType() == customerWinCondition || currentCustomer.GetComponent<Effect>().GetEffectType() == secondCustomerWinCondition) && !(won || lose))
               {
                   Debug.Log("WIN");
                 
@@ -101,13 +103,15 @@ public class CustomerManager : MonoBehaviour
                 }*/
 
               }
-            else if(currentCustomer.GetComponent<Effect>().GetEffectType() != customerWinCondition && !won)
+            else if((currentCustomer.GetComponent<Effect>().GetEffectType() != customerWinCondition && currentCustomer.GetComponent<Effect>().GetEffectType() != secondCustomerWinCondition) && !(won || lose))
             {
                 currentCustomer.GetComponent<Rigidbody>().useGravity = false;
                 lose = true;
 
                 currentCustomer.GetComponent<CustomerInteraction>().Interact(currentCustomer.gameObject);
-                Debug.Log("LOSE");
+                Debug.Log(currentCustomer.GetComponent<Effect>().GetEffectType());
+                Debug.Log(currentCustomer.GetComponent<Effect>() != null);
+                
                 /*if (UIManager.instance.currentState != UIState.dialogue)
                 {
                     Destroy(currentCustomer.gameObject);

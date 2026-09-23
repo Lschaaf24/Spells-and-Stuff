@@ -139,7 +139,7 @@ MonoBehaviour:
   - I need to reach the top shelf at my house.
   - Find a spell to help me.
   winDialogueLines:
-  - WOW IM FLYING....
+  - Well.....i guess this works
   - How long does this last?
   loseDialogueLines:
   - WRONG

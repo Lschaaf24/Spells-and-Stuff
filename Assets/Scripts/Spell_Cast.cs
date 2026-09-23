@@ -72,7 +72,7 @@ public class Spell_Cast : MonoBehaviour
                     {
                         if (!hit.collider.gameObject.GetComponent<TallEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Interactable"))) 
                         {
-                            hit.collider.gameObject.AddComponent<TallEffect>();
+                            Debug.Log(hit.collider.gameObject.AddComponent<TallEffect>().GetEffectType());
                             spell_cast = true;
 
                         }
