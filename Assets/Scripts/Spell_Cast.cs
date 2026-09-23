@@ -28,7 +28,7 @@ public class Spell_Cast : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = new Ray(Camera.allCameras[0].transform.position, Camera.allCameras[0].transform.forward);
-        if (_input.cast)
+        if (_input.cast && UIManager.instance.currentState == UIState.play)
         {
             Debug.Log("CAST SPELL!");
             _input.cast = false;
@@ -116,5 +116,7 @@ public class Spell_Cast : MonoBehaviour
                 GetComponent<Spell_Combo>().ResetWords();
             }
         }
+        else { _input.cast = false; }
+
     }
 }
