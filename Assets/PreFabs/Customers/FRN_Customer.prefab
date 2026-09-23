@@ -140,7 +140,7 @@ MonoBehaviour:
   - im cold
   - Find a spell to help me.
   winDialogueLines:
-  - WOW IM COLD....
+  - WOW IM not COLD....
   - How long does this last?
   loseDialogueLines:
   - WRONG
