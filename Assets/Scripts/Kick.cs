@@ -47,8 +47,9 @@ public class Kick : MonoBehaviour
 
         Vector3 displacement = kickObject.transform.position - transform.position;
         displacement = displacement.normalized;
-        displacement.y = Mathf.Abs(displacement.y) * 10;
+        displacement.y = Mathf.Abs(displacement.y) * 75;
 
+        kickObject.GetComponent<Rigidbody>().isKinematic = false;
         kickObject.GetComponent<Rigidbody>().AddForce(displacement * power, ForceMode.Impulse);
 
 

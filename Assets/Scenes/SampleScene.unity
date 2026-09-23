@@ -655,7 +655,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press ";" to interact
+  m_text: Press ";" to kick
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 20f5451b14a0ea8439010387aa403971, type: 2}
   m_sharedMaterial: {fileID: 1253488424090188274, guid: 20f5451b14a0ea8439010387aa403971, type: 2}
