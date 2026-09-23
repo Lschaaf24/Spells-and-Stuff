@@ -43,14 +43,16 @@ public class Kick : MonoBehaviour
         if (kickObject == null) return;
 
         kickObject.GetComponent<NavMeshAgent>().enabled = false;
-        kickObject.GetComponent<FollowPlayer>().enabled = false;
 
         Vector3 displacement = kickObject.transform.position - transform.position;
+        displacement.y =  2;
         displacement = displacement.normalized;
-        displacement.y = Mathf.Abs(displacement.y) * 75;
 
         kickObject.GetComponent<Rigidbody>().isKinematic = false;
         kickObject.GetComponent<Rigidbody>().AddForce(displacement * power, ForceMode.Impulse);
+
+        
+        kickObject.GetComponent<FollowPlayer>().BeginDemise();
 
 
     }
