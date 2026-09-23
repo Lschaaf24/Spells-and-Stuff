@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3923768813848599355}
   - component: {fileID: 4451213877191771460}
   m_Layer: 6
-  m_Name: FRN_Customer
+  m_Name: Pig_Customer
   m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,14 +137,14 @@ MonoBehaviour:
   dialogueLines:
   - HELLO THERE
   - I NEED HELP
-  - im cold
-  - Find a spell to help me.
+  - My husand been acting like a pig.......sooooo....
+  - make him one
   winDialogueLines:
-  - WOW IM COLD....
-  - How long does this last?
+  - ...
+  - Did he change?
+  - cant tell...
   loseDialogueLines:
   - WRONG
-  - Prick
   poof: {fileID: 3601945442856682321}
 --- !u!95 &3255834446705796823
 Animator:

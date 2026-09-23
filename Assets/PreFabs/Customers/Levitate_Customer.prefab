@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3923768813848599355}
   - component: {fileID: 4451213877191771460}
   m_Layer: 6
-  m_Name: Customer
+  m_Name: Levitate_Customer
   m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

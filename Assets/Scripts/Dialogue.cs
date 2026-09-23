@@ -13,7 +13,7 @@ public class Dialogue : MonoBehaviour
     private string[] lines;
     private int index;
 
-    private bool isTyping;
+    public bool isTyping;
 
     private void Start()
     {
@@ -94,6 +94,9 @@ public class Dialogue : MonoBehaviour
         isTyping = false;
     }
 
-
+    public void ClearDialogue()
+    {
+        textComponent.text = string.Empty;
+    }
 
 }
