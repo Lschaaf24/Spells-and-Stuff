@@ -2,6 +2,7 @@ using StarterAssets;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum UIState
 {
@@ -78,5 +79,10 @@ public class UIManager : MonoBehaviour
     public void setCurrentState(UIState state)
     {
         currentState = state;
+    }
+
+    public void exitButton()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
