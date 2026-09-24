@@ -16,6 +16,8 @@ public class Spell_Cast : MonoBehaviour
     [SerializeField] private GameObject cop_prefab;
     [SerializeField] private TextMeshProUGUI dialogue_text;
 
+    [SerializeField] private SpellUITracker spellTracker;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,6 +46,7 @@ public class Spell_Cast : MonoBehaviour
                     spell.transform.position += 2 * proj.direction;
                     spell_cast = true;
                     SoundManager.PlaySound(SoundType.FireSpell, 0.1f);
+                    spellTracker.learnSpell("Fire");
 
                     break;
                 case ("levitate"):
@@ -57,6 +60,8 @@ public class Spell_Cast : MonoBehaviour
                         spell_cast = true;
                         SoundManager.PlaySound(SoundType.LevitateSpell, 0.1f);
 
+
+                        spellTracker.learnSpell("Levitate");
                     }
                     break;
                 case ("pig"):
@@ -68,6 +73,8 @@ public class Spell_Cast : MonoBehaviour
                         }
                         spell_cast = true;
                         SoundManager.PlaySound(SoundType.PigSpell, 0.1f);
+
+                        spellTracker.learnSpell("Pig");
                     }
                     break;
                 case ("tall"):
@@ -78,6 +85,7 @@ public class Spell_Cast : MonoBehaviour
                             Debug.Log(hit.collider.gameObject.AddComponent<TallEffect>().GetEffectType());
                             spell_cast = true;
                             SoundManager.PlaySound(SoundType.TallSpell, 0.1f);
+                            spellTracker.learnSpell("Tall");
                         }
                     }
                     break;
@@ -90,6 +98,8 @@ public class Spell_Cast : MonoBehaviour
                             cop.GetComponent<Cop>().SetDialgoueText(dialogue_text);
                             spell_cast = true;
                             SoundManager.PlaySound(SoundType.FreezeSpell, 0.1f);
+                            spellTracker.learnSpell("Freeze");
+
                         }
                     }
                     break;
@@ -106,12 +116,18 @@ public class Spell_Cast : MonoBehaviour
                              
                             SoundManager.PlaySound(SoundType.BirdSpell, 0.1f);
 
+                        spell_cast = true;
+                        spellTracker.learnSpell("Bird");
+
+
                         }
 
                        
                     }
                     break;
                 case ("cloud"):
+                    spellTracker.learnSpell("Cloud");
+
                     break;
                 case ("fire_sprite"):
                     Debug.Log("FIRE SPRITE");
@@ -120,6 +136,8 @@ public class Spell_Cast : MonoBehaviour
                     spell.GetComponent<FollowPlayer>().SetTarget(this.transform.parent.gameObject);
                     spell_cast = true;
                     SoundManager.PlaySound(SoundType.FireSpiritSpell, 0.1f);
+                    spellTracker.learnSpell("Fire Dude");
+
                     break;
             }
 

@@ -15,4 +15,4 @@ MonoBehaviour:
   spellName: Pig
   spellDescription: Oink Oink
   wordCombo: Transform + Lifeform
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 0614b89d1be5fdd45be9ca097b638c24, type: 3}

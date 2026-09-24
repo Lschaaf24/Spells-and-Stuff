@@ -15,4 +15,4 @@ MonoBehaviour:
   spellName: Cloud
   spellDescription: Makes cloud
   wordCombo: Air + Transform
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 23286dd67253db1419e7dfd82fb58f50, type: 3}
