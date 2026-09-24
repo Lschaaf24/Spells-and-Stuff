@@ -16,3 +16,4 @@ MonoBehaviour:
   spellDescription: He's just a fire dude
   wordCombo: Heat + Lifeform
   icon: {fileID: 21300000, guid: 931536dca7a52a24399612990d7072f9, type: 3}
+  iconColor: {r: 0.7169812, g: 0.25752082, b: 0, a: 1}
