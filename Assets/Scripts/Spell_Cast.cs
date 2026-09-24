@@ -61,8 +61,7 @@ public class Spell_Cast : MonoBehaviour
                 case ("pig"):
                     if (Physics.Raycast(ray, out hit)) 
                     {
-                        spell = Instantiate(spells[2], hit.collider.transform.position, Quaternion.identity.normalized);
-                        Destroy(hit.collider.gameObject);
+                        hit.collider.gameObject.AddComponent<PigEffect>();
                         spell_cast = true;
 
                     }
