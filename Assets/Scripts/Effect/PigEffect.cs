@@ -13,8 +13,16 @@ public class PigEffect : Effect
         transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
         GetComponentInChildren<ParticleSystem>().Play();
         lifetime = 10.0f;
-        og_mesh = GetComponentInChildren<MeshFilter>().mesh;
-        og_materials = GetComponent<MeshRenderer>().materials;
+        if (tag == "Customer")
+        {
+            og_mesh = GetComponent<Customer>().CurrentCharacterMesh.GetComponent<SkinnedMeshRenderer>().sharedMesh;
+            og_materials = GetComponent<Customer>().CurrentCharacterMesh.GetComponent<SkinnedMeshRenderer>().sharedMaterials;
+        }
+        else
+        {
+            og_mesh = GetComponentInChildren<MeshFilter>().mesh;
+            og_materials = GetComponent<MeshRenderer>().materials;
+        }
         og_scale = transform.localScale;
         transform.localScale = Vector3.one;
     }
@@ -36,7 +44,16 @@ public class PigEffect : Effect
 
     public void SetPigMesh(GameObject pig) 
     {
-       GetComponent<MeshFilter>().mesh = pig.GetComponent<MeshFilter>().sharedMesh;
-       GetComponent<MeshRenderer>().materials = pig.GetComponent<MeshRenderer>().sharedMaterials;
+        if(tag == "Customer")
+        {
+            GetComponent<Customer>().CurrentCharacterMesh.GetComponent<SkinnedMeshRenderer>().sharedMesh = pig.GetComponent<MeshFilter>().sharedMesh;
+            GetComponent<Customer>().CurrentCharacterMesh.GetComponent<SkinnedMeshRenderer>().materials = pig.GetComponent<MeshRenderer>().sharedMaterials;
+        }
+        else
+        {
+            GetComponent<MeshFilter>().mesh = pig.GetComponent<MeshFilter>().sharedMesh;
+            GetComponent<MeshRenderer>().materials = pig.GetComponent<MeshRenderer>().sharedMaterials;
+
+        }
     }
 }

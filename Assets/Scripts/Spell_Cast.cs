@@ -62,7 +62,7 @@ public class Spell_Cast : MonoBehaviour
                 case ("pig"):
                     if (Physics.Raycast(ray, out hit)) 
                     {
-                        if (!hit.collider.gameObject.GetComponent<PigEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable"))) 
+                        if (!hit.collider.gameObject.GetComponent<PigEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Interactable")))
                         {
                             hit.collider.gameObject.AddComponent<PigEffect>().SetPigMesh(spells[2]);
                         }
@@ -98,7 +98,7 @@ public class Spell_Cast : MonoBehaviour
                     {
                         if (Physics.Raycast(ray, out hit))
                         {
-                            if (!hit.collider.gameObject.GetComponent<BirdEffect>() && !hit.collider.gameObject.GetComponent<PigEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable")))
+                            if (!hit.collider.gameObject.GetComponent<BirdEffect>() && !hit.collider.gameObject.GetComponent<PigEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Interactable")))
                             {
                                 hit.collider.gameObject.AddComponent<BirdEffect>().SetBirdMesh(spells[5]);
                             }

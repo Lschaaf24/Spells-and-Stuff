@@ -33,9 +33,10 @@ public class Interaction : MonoBehaviour
         else
         {
             textUI.SetActive(false);
-            //interactedObject = null;
 
             RemoveOutlineMaterial();
+            
+
         }
     }
 
@@ -133,6 +134,6 @@ public class Interaction : MonoBehaviour
 
         removedMaterial = true;
         addedMaterial = false;
-        interactedObject = null;
+        //interactedObject = null;
     }
 }
