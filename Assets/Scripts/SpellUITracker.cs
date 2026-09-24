@@ -34,13 +34,23 @@ public class SpellUITracker : MonoBehaviour
 
                         Image img = icon.GetComponent<Image>();
                         img.sprite = spellDescriptions[j].icon;
+                        img.color = spellDescriptions[j].iconColor;
 
                         Transform description = spellUIObjects[i].transform.Find("Description");
                         TextMeshProUGUI content = description.GetComponent<TextMeshProUGUI>();
                         content.text = spellDescriptions[j].spellName;
+                        content.color = spellDescriptions[j].iconColor;
 
                         TextMeshProUGUI text = spellLearned.getText();
+                        text.color = Color.paleGoldenRod;
+                        text.alpha = 0.0f;
                         text.text = "Spell Learned " + spellName;
+
+
+                        Transform imgBack = spellUIObjects[i].transform.Find("Image (1)");
+                        Image imgBackground = imgBack.GetComponent<Image>();
+                        imgBackground.color = Color.blue;
+
 
 
                     }
@@ -49,14 +59,11 @@ public class SpellUITracker : MonoBehaviour
 
         }
 
-        if (learnedSpells.Contains(spellName))
+        if (learnedSpells.Contains(spellName) == false)
         {
-
-        }
-        else
-        {
-            spellLearned.textIn();
             learnedSpells.Add(spellName);
+            spellLearned.textIn();
+            Debug.Log("list item: " + learnedSpells[0]);
         }
 
     }
