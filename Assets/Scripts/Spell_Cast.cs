@@ -62,7 +62,7 @@ public class Spell_Cast : MonoBehaviour
                 case ("pig"):
                     if (Physics.Raycast(ray, out hit)) 
                     {
-                        if (!hit.collider.gameObject.GetComponent<PigEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable"))) 
+                        if (!hit.collider.gameObject.GetComponent<BirdEffect>() && !hit.collider.gameObject.GetComponent<PigEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable"))) 
                         {
                             hit.collider.gameObject.AddComponent<PigEffect>().SetPigMesh(spells[2]);
                         }
@@ -96,17 +96,17 @@ public class Spell_Cast : MonoBehaviour
                 case ("bird"):
                     if (Physics.Raycast(ray, out hit))
                     {
-                        if (Physics.Raycast(ray, out hit))
+                       
+                        if (!hit.collider.gameObject.GetComponent<BirdEffect>() && !hit.collider.gameObject.GetComponent<PigEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable")))
                         {
-                            if (!hit.collider.gameObject.GetComponent<BirdEffect>() && !hit.collider.gameObject.GetComponent<PigEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable")))
-                            {
-                                hit.collider.gameObject.AddComponent<BirdEffect>().SetBirdMesh(spells[5]);
-                            }
-                            spell_cast = true;
-                             
-                            SoundManager.PlaySound(SoundType.BirdSpell, 0.1f);
+                            hit.collider.gameObject.AddComponent<BirdEffect>().SetBirdMesh(spells[5]);
 
                         }
+                        spell_cast = true;
+                             
+                        SoundManager.PlaySound(SoundType.BirdSpell, 0.1f);
+
+                        
 
                        
                     }

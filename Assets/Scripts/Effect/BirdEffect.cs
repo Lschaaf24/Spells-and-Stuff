@@ -10,24 +10,34 @@ public class BirdEffect : Effect
     void Awake()
     {
         effect_type = "bird";
-        GetComponentInChildren<ParticleSystem>().Play();
+        if (GetComponentInChildren<ParticleSystem>()) 
+        {
+            GetComponentInChildren<ParticleSystem>().Play();
+        }
         lifetime = 4.0f;
         og_mesh = GetComponentInChildren<MeshFilter>().mesh;
         og_materials = GetComponent<MeshRenderer>().materials;
         og_scale = transform.localScale;
         transform.localScale = Vector3.one;
+        GetComponent<Rigidbody>().isKinematic = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         lifetime -= Time.deltaTime;
+        transform.position += Vector3.up * Time.deltaTime * 1.0f;
+        
         if(lifetime < 0) 
         {
-            GetComponentInChildren<ParticleSystem>().Play();
+            if (GetComponentInChildren<ParticleSystem>())
+            {
+                GetComponentInChildren<ParticleSystem>().Play();
+            }
             GetComponent<MeshFilter>().mesh = og_mesh;
             GetComponent<MeshRenderer>().materials = og_materials;
             transform.localScale = Vector3.one;
+            GetComponent<Rigidbody>().isKinematic = false;
             Destroy(this);
         }
     }
