@@ -89,12 +89,4 @@ public class Spell_Combo : MonoBehaviour
             }
         }
     }
-
-    public void ResetWords() 
-    {
-        first_word = "";
-        second_word = "";
-        FindSpell();
-        UpdateText();
-    }
 }

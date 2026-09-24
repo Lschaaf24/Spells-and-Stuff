@@ -70,9 +70,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Kick",
+                    "name": "SpellBook",
                     "type": "Button",
-                    "id": "b8d34f2c-1f62-418b-9c73-efe43debe419",
+                    "id": "751a9a81-3b61-4577-846f-3732e07952f2",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -291,12 +291,12 @@
                 },
                 {
                     "name": "",
-                    "id": "bda2e2ba-c823-4c6d-ba2b-ad0591f5131c",
-                    "path": "<Keyboard>/semicolon",
+                    "id": "fce886d6-1c8d-493b-9d41-1b5216ea5f87",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Kick",
+                    "action": "SpellBook",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

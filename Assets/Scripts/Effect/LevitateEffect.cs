@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class LevitateEffect : Effect
 {
-   
+    
+    float lifetime = 0;
     [SerializeField] float force = 60;
     Rigidbody rb;
-    private void Awake()
+    private void Start()
     {
         effect_type = "levitate";
         rb = GetComponent<Rigidbody>();

@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28243b36375aa24d93cf4c2d8f45479, type: 3}
   m_Name: 2
   m_EditorClassIdentifier: Assembly-CSharp::CustomerData
-  prefab: {fileID: 1344100721619664760, guid: e8a7c82e05dd37944bcd2d80460211ad, type: 3}
+  prefab: {fileID: 1344100721619664760, guid: 5bf32370f5f453f4aae3247403e0e26a, type: 3}
   Spell: fire
-  SecondSpell: fire
