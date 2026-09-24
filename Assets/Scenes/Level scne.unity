@@ -3525,6 +3525,7 @@ MonoBehaviour:
   pauseGameUI: {fileID: 1812756377}
   dialogueUI: {fileID: 1043182789}
   spellCatalogueUI: {fileID: 1089095011}
+  wordUI: {fileID: 530634045}
   firstPersonController: {fileID: 2071089107}
   currentState: 3
 --- !u!4 &488034535
@@ -3713,7 +3714,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -1.5771637, y: 0, z: 0, w: 0}
+  m_margin: {x: -1.5771637, y: -5.5839233, z: -1.699173, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3743,8 +3744,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 388.03894, y: -220.7232}
-  m_SizeDelta: {x: -649.6957, y: -534.7975}
+  m_AnchoredPosition: {x: 368.23892, y: -198}
+  m_SizeDelta: {x: -736.4678, y: -524.8336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &533063610 stripped
 GameObject:
@@ -5470,7 +5471,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 18, y: 209}
+  m_AnchoredPosition: {x: 0, y: 209}
   m_SizeDelta: {x: -608.1129, y: -550}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &735982304
@@ -7666,7 +7667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8800737432261444369, guid: 5068d382cf4907844a1f5fc4958d2290, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9235,7 +9236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1319279104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14652,7 +14653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f22105596cc914da42e6fda2be406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interaction
-  interactionRange: 20
+  interactionRange: 5
   textUI: {fileID: 29634184}
   interactableLayer:
     serializedVersion: 2
