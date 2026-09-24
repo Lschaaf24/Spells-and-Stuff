@@ -25,12 +25,12 @@ public class PigEffect : Effect
         lifetime -= Time.deltaTime;
         if(lifetime < 0) 
         {
-            GetComponentInChildren<ParticleSystem>().Play();
             GetComponent<MeshFilter>().mesh = og_mesh;
             GetComponent<MeshRenderer>().materials = og_materials;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             transform.localScale = Vector3.one;
             Destroy(this);
+            GetComponentInChildren<ParticleSystem>().Play();
         }
     }
 
