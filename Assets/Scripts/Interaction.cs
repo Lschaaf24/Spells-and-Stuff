@@ -1,4 +1,5 @@
 
+using UnityEditor.Profiling.Memory.Experimental;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -33,9 +34,10 @@ public class Interaction : MonoBehaviour
         else
         {
             textUI.SetActive(false);
-            //interactedObject = null;
 
             RemoveOutlineMaterial();
+            
+
         }
     }
 
@@ -92,6 +94,7 @@ public class Interaction : MonoBehaviour
 
         if (interactedObject.gameObject.tag == "Customer")
         {
+            
             objectRenderer = interactedObject.GetComponent<Customer>().CurrentCharacterMesh.GetComponent<SkinnedMeshRenderer>();
             Material[] newMaterialArray = new Material[objectRenderer.materials.Length + 1];
             objectRenderer.materials.CopyTo(newMaterialArray, 0);
@@ -103,7 +106,6 @@ public class Interaction : MonoBehaviour
         else
         {
             objectRenderer = interactedObject.GetComponent<Renderer>();
-
             Material[] materialArray = new Material[objectRenderer.materials.Length + 1];
             objectRenderer.materials.CopyTo(materialArray, 0);
             materialArray[materialArray.Length - 1] = outlineMaterial;
@@ -146,5 +148,6 @@ public class Interaction : MonoBehaviour
 
         removedMaterial = true;
         addedMaterial = false;
+        //interactedObject = null;
     }
 }

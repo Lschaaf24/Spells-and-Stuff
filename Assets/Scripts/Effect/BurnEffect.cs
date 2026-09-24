@@ -12,7 +12,7 @@ public class BurnEffect : Effect
         
         if(tag == "Customer")
         {
-            GetComponent<Customer>().CurrentCharacterMesh.GetComponent<SkinnedMeshRenderer>().SetPropertyBlock(props);
+                GetComponent<Customer>().CurrentCharacterMesh.GetComponent<SkinnedMeshRenderer>().SetPropertyBlock(props);
         }
 
         GetComponent<MeshRenderer>().SetPropertyBlock(props);
@@ -29,7 +29,7 @@ public class BurnEffect : Effect
             props.SetColor("_BaseColor", Color.black);
             if (tag == "Customer")
             {
-                GetComponent<Customer>().CurrentCharacterMesh.GetComponent<SkinnedMeshRenderer>().SetPropertyBlock(props);
+                    GetComponent<Customer>().CurrentCharacterMesh.GetComponent<SkinnedMeshRenderer>().SetPropertyBlock(props);
             }
             GetComponent<MeshRenderer>().SetPropertyBlock(props);
         }

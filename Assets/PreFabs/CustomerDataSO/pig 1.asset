@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e28243b36375aa24d93cf4c2d8f45479, type: 3}
-  m_Name: pig
+  m_Name: pig 1
   m_EditorClassIdentifier: Assembly-CSharp::CustomerData
-  prefab: {fileID: 1344100721619664760, guid: 5b4a0c8cf293e1b42933ffa784d20ab5, type: 3}
+  prefab: {fileID: 1344100721619664760, guid: 086e2bc1876e7e341aea6af3b69edb66, type: 3}
   Spell: pig
-  SecondSpell: pig
+  SecondSpell: bird
