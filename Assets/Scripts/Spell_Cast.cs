@@ -103,13 +103,12 @@ public class Spell_Cast : MonoBehaviour
                                 hit.collider.gameObject.AddComponent<BirdEffect>().SetBirdMesh(spells[5]);
                             }
                             spell_cast = true;
+                             
+                            SoundManager.PlaySound(SoundType.BirdSpell, 0.1f);
 
                         }
 
-                        spell = Instantiate(spells[3], hit.collider.transform.position, Quaternion.identity.normalized);
-                        Destroy(hit.collider.gameObject);
-                        spell_cast = true;
-                        SoundManager.PlaySound(SoundType.BirdSpell, 0.1f);
+                       
                     }
                     break;
                 case ("cloud"):
