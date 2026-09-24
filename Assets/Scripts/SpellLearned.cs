@@ -8,8 +8,6 @@ public class SpellLearned : MonoBehaviour
     [SerializeField] private float fadeTime = 0.1f;
     private TextMeshProUGUI text;
 
-    private float increment;
-    private bool fadeIn;
 
     private void Start()
     {
@@ -18,15 +16,9 @@ public class SpellLearned : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-       
-    }
-
 
     public void textIn()
     {
-        fadeIn = true;
 
         StartCoroutine(FadeTextIn());
     }
@@ -64,20 +56,6 @@ public class SpellLearned : MonoBehaviour
         text.color = color;
     }
 
-
-    //private IEnumerator Fade(float startLevel, float endLevel, float time)
-    //{
-    //    float speed = 1.0f / time;
-
-    //    for (float t = 0.0f; t < 1.0; t += Time.deltaTime * speed)
-    //    {
-    //        float a = Mathf.Lerp(startLevel, endLevel, t);
-    //        text.color = new Color(text.color.r,
-    //            text.color.g,
-    //            text.color.b, a);
-    //        yield return null;
-    //    }
-    //}
 
     private IEnumerator FadeTextIn()
     {

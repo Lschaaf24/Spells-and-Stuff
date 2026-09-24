@@ -52,19 +52,18 @@ public class SpellUITracker : MonoBehaviour
                         imgBackground.color = Color.blue;
 
 
+                        if (learnedSpells.Contains(spellName) == false)
+                        {
+                            learnedSpells.Add(spellName);
+                            spellLearned.textIn();
+                        }
+
+
 
                     }
                 }
             }
 
         }
-
-        if (learnedSpells.Contains(spellName) == false)
-        {
-            learnedSpells.Add(spellName);
-            spellLearned.textIn();
-            Debug.Log("list item: " + learnedSpells[0]);
-        }
-
     }
 }
