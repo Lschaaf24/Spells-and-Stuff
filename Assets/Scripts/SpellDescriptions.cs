@@ -8,4 +8,6 @@ public class SpellDescriptions : ScriptableObject
     public string wordCombo;
 
     public Sprite icon;
+
+    public Color iconColor;
 }
