@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PigEffect : Effect
@@ -8,7 +9,7 @@ public class PigEffect : Effect
     void Awake()
     {
         effect_type = "pig";
-        GetComponent<MeshFilter>().mesh = mesh;
+        transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
     }
 
     // Update is called once per frame

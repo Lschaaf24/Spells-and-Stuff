@@ -62,6 +62,8 @@ public class Spell_Cast : MonoBehaviour
                     if (Physics.Raycast(ray, out hit)) 
                     {
                         hit.collider.gameObject.AddComponent<PigEffect>();
+                        hit.collider.gameObject.GetComponent<MeshFilter>().mesh = spells[2].GetComponent<MeshFilter>().sharedMesh;
+                        hit.collider.gameObject.GetComponent<MeshRenderer>().materials = spells[2].GetComponent<MeshRenderer>().sharedMaterials;
                         spell_cast = true;
 
                     }
