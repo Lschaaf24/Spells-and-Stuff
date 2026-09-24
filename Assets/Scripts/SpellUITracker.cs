@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,15 +11,17 @@ public class SpellUITracker : MonoBehaviour
     [SerializeField] private GameObject[] spellUIObjects;
     [SerializeField] private SpellDescriptions[] spellDescriptions;
 
+    [SerializeField] private SpellLearned spellLearned;
 
     private void Update()
     {
 
     }
 
-
+     
     public void learnSpell(string spellName)
     {
+        
         for (int i = 0; i < spellUIObjects.Length; i++)
         {
             if (spellUIObjects[i].name == spellName)
@@ -38,11 +41,15 @@ public class SpellUITracker : MonoBehaviour
                         Transform description = spellUIObjects[i].transform.Find("Description");
                         TextMeshProUGUI content = description.GetComponent<TextMeshProUGUI>();
                         content.text = spellDescriptions[j].spellName;
+
+                        TextMeshProUGUI text = spellLearned.getText();
+                        text.text = "Spell Learned " + spellName;
                     }
                 }
             }
 
         }
+        spellLearned.textIn();
 
     }
 }

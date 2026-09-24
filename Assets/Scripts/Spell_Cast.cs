@@ -58,7 +58,7 @@ public class Spell_Cast : MonoBehaviour
                         ae.effect_type = typeof(LevitateEffect);
                         spell_cast = true;
 
-
+                        spellTracker.learnSpell("Levitate");
                     }
                     break;
                 case ("pig"):
@@ -67,6 +67,7 @@ public class Spell_Cast : MonoBehaviour
                         hit.collider.gameObject.AddComponent<PigEffect>();
                         spell_cast = true;
 
+                        spellTracker.learnSpell("Pig");
                     }
                     break;
                 case ("tall"):
@@ -76,7 +77,7 @@ public class Spell_Cast : MonoBehaviour
                         {
                             Debug.Log(hit.collider.gameObject.AddComponent<TallEffect>().GetEffectType());
                             spell_cast = true;
-
+                            spellTracker.learnSpell("Tall");
                         }
                     }
                     break;
@@ -88,6 +89,7 @@ public class Spell_Cast : MonoBehaviour
                             GameObject cop = hit.collider.gameObject.AddComponent<FreezeEffect>().SpawnCop(cop_prefab, spells[3]);
                             cop.GetComponent<Cop>().SetDialgoueText(dialogue_text);
                             spell_cast = true;
+                            spellTracker.learnSpell("Freeze");
 
                         }
                     }
@@ -98,10 +100,14 @@ public class Spell_Cast : MonoBehaviour
                         spell = Instantiate(spells[3], hit.collider.transform.position, Quaternion.identity.normalized);
                         Destroy(hit.collider.gameObject);
                         spell_cast = true;
+                        spellTracker.learnSpell("Bird");
+
 
                     }
                     break;
                 case ("cloud"):
+                    spellTracker.learnSpell("Cloud");
+
                     break;
                 case ("fire_sprite"):
                     Debug.Log("FIRE SPRITE");
@@ -109,6 +115,8 @@ public class Spell_Cast : MonoBehaviour
                     spell.transform.position += 2 * ray.direction;
                     spell.GetComponent<FollowPlayer>().SetTarget(this.transform.parent.gameObject);
                     spell_cast = true;
+                    spellTracker.learnSpell("Fire Dude");
+
                     break;
             }
 
