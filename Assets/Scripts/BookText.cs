@@ -149,7 +149,6 @@ public class BookText : MonoBehaviour, IPointerClickHandler
         floatingText.font = bText.font;
         floatingText.fontStyle = FontStyles.Bold;
         floatingText.alignment = TextAlignmentOptions.Center;
-        floatingText.color = Color.red;
 
         rectTransform.sizeDelta = new Vector2(300f, 100f);
 
