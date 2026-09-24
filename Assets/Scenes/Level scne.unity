@@ -2627,7 +2627,8 @@ MonoBehaviour:
     sounds:
     - {fileID: 8300000, guid: 6393b6eb2fbc99c43b875139a2e19b9b, type: 3}
   - name: Footstep
-    sounds: []
+    sounds:
+    - {fileID: 8300000, guid: acb249bd3b9c519428653f739d48e31f, type: 3}
   - name: Jump
     sounds: []
 --- !u!4 &405500232
@@ -12637,6 +12638,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   power: 20
+  rigidBody: {fileID: 0}
 --- !u!1001 &2073684369
 PrefabInstance:
   m_ObjectHideFlags: 0
