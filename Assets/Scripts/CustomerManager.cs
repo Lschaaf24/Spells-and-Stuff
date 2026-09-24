@@ -43,7 +43,8 @@ public class CustomerManager : MonoBehaviour
 
         Debug.Log(secondCustomerWinCondition);
 
-        
+        SoundManager.PlaySound(SoundType.NewCustomer, 0.1f);
+
 
     }
 
