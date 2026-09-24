@@ -139,10 +139,10 @@ MonoBehaviour:
   dialogueLines:
   - Hey
   - Got a challenge for you
-  - i bet u couldnt turn me an animal
+  - i bet u couldnt turn me into an animal
   winDialogueLines:
   - ...
-  - damn
+  - well, damn
   loseDialogueLines:
   - As i thought.....
   poof: {fileID: 3601945442856682321}

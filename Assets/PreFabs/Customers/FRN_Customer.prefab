@@ -140,7 +140,7 @@ MonoBehaviour:
   dialogueLines:
   - HELLO THERE
   - I NEED HELP
-  - im cold
+  - Im cold
   - Find a spell to help me.
   winDialogueLines:
   - WOW IM not COLD....
