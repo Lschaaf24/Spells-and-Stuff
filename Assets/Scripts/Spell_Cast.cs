@@ -107,16 +107,12 @@ public class Spell_Cast : MonoBehaviour
                     if (Physics.Raycast(ray, out hit))
                     {
                        
-                        if (!hit.collider.gameObject.GetComponent<BirdEffect>() && !hit.collider.gameObject.GetComponent<PigEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable")))
-                        {
-                            hit.collider.gameObject.AddComponent<BirdEffect>().SetBirdMesh(spells[5]);
+                        spell = Instantiate(spells[5], Camera.main.transform.position, Quaternion.identity.normalized);
+                        spell.transform.position += (5 * ray.direction) ;
 
                         spell_cast = true;
                         spellTracker.learnSpell("Bird");
-
-
-                        }
-                        spell_cast = true;
+              
                              
                         SoundManager.PlaySound(SoundType.BirdSpell, 0.1f);
 
@@ -126,6 +122,12 @@ public class Spell_Cast : MonoBehaviour
                     }
                     break;
                 case ("cloud"):
+                    spell = Instantiate(spells[6], Camera.main.transform.position, Quaternion.identity.normalized);
+                    spell.transform.position += (6 * ray.direction) + Vector3.up * 3;
+                    spell.transform.rotation = Quaternion.Euler(new Vector3(90.0f, 0, 0));
+
+                    spell_cast = true;
+
                     spellTracker.learnSpell("Cloud");
 
                     break;
