@@ -9,6 +9,12 @@ public class BurnEffect : Effect
         effect_type = "fire";
         MaterialPropertyBlock props = new MaterialPropertyBlock();
         props.SetColor("_BaseColor", Color.red);
+        
+        if(tag == "Customer")
+        {
+            GetComponent<Customer>().CurrentCharacterMesh.GetComponent<SkinnedMeshRenderer>().SetPropertyBlock(props);
+        }
+
         GetComponent<MeshRenderer>().SetPropertyBlock(props);
        
     }
@@ -21,6 +27,10 @@ public class BurnEffect : Effect
         {
             MaterialPropertyBlock props = new MaterialPropertyBlock();
             props.SetColor("_BaseColor", Color.black);
+            if (tag == "Customer")
+            {
+                GetComponent<Customer>().CurrentCharacterMesh.GetComponent<SkinnedMeshRenderer>().SetPropertyBlock(props);
+            }
             GetComponent<MeshRenderer>().SetPropertyBlock(props);
         }
     }

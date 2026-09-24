@@ -32,7 +32,7 @@ public class Interaction : MonoBehaviour
         else
         {
             textUI.SetActive(false);
-            interactedObject = null;
+            //interactedObject = null;
 
             RemoveOutlineMaterial();
         }
@@ -76,12 +76,27 @@ public class Interaction : MonoBehaviour
     {
         if (addedMaterial) return;
 
-        objectRenderer = interactedObject.GetComponent<Renderer>();
+        if (interactedObject.gameObject.tag == "Customer")
+        {
+            objectRenderer = interactedObject.GetComponent<Customer>().CurrentCharacterMesh.GetComponent<SkinnedMeshRenderer>();
+            Material[] newMaterialArray = new Material[objectRenderer.materials.Length + 1];
+            objectRenderer.materials.CopyTo(newMaterialArray, 0);
+            newMaterialArray[newMaterialArray.Length - 1] = outlineMaterial;
+            objectRenderer.materials = newMaterialArray;
 
-        Material[] materialArray = new Material[objectRenderer.materials.Length + 1];
-        objectRenderer.materials.CopyTo(materialArray, 0);
-        materialArray[materialArray.Length - 1] = outlineMaterial;
-        objectRenderer.materials = materialArray;
+
+        }
+        else
+        {
+            objectRenderer = interactedObject.GetComponent<Renderer>();
+
+            Material[] materialArray = new Material[objectRenderer.materials.Length + 1];
+            objectRenderer.materials.CopyTo(materialArray, 0);
+            materialArray[materialArray.Length - 1] = outlineMaterial;
+            objectRenderer.materials = materialArray;
+
+        }
+
 
         addedMaterial = true;
         removedMaterial = false;
@@ -92,12 +107,28 @@ public class Interaction : MonoBehaviour
         if (removedMaterial) return;
         if (objectRenderer == null) return;
 
-        Material[] materialArray = new Material[objectRenderer.materials.Length - 1];
-        for (int i = 0; i < materialArray.Length; i++)
+        if(interactedObject.gameObject.tag == "Customer")
         {
-            materialArray[i] = objectRenderer.materials[i];
+            objectRenderer = interactedObject.GetComponent<Customer>().CurrentCharacterMesh.GetComponent<SkinnedMeshRenderer>();
+            Material[] newMaterialArray = new Material[objectRenderer.materials.Length - 1];
+            for (int i = 0; i < newMaterialArray.Length; i++)
+            {
+                newMaterialArray[i] = objectRenderer.materials[i];
+            }
+            objectRenderer.materials = newMaterialArray;
         }
-        objectRenderer.materials = materialArray;
+        else
+        {
+            Material[] materialArray = new Material[objectRenderer.materials.Length - 1];
+            for (int i = 0; i < materialArray.Length; i++)
+            {
+                materialArray[i] = objectRenderer.materials[i];
+            }
+            objectRenderer.materials = materialArray;
+
+        }
+
+
 
         removedMaterial = true;
         addedMaterial = false;

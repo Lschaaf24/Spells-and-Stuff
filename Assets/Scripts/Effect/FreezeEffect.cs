@@ -9,6 +9,10 @@ public class FreezeEffect : Effect
         effect_type = "freeze";
         MaterialPropertyBlock props = new MaterialPropertyBlock();
         props.SetColor("_BaseColor", Color.lightBlue);
+        if (tag == "Customer")
+        {
+            GetComponent<Customer>().CurrentCharacterMesh.GetComponent<SkinnedMeshRenderer>().SetPropertyBlock(props);
+        }
         GetComponent<MeshRenderer>().SetPropertyBlock(props);
     }
 
