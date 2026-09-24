@@ -69,6 +69,7 @@ public class Spell_Cast : MonoBehaviour
                         if (!hit.collider.gameObject.GetComponent<PigEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Interactable")))
                         {
                             hit.collider.gameObject.AddComponent<PigEffect>().SetPigMesh(spells[2]);
+                            hit.transform.position = hit.transform.position + new Vector3(0, 2, 0);
                         }
                         spell_cast = true;
                         SoundManager.PlaySound(SoundType.PigSpell, 0.1f);

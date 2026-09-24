@@ -101,7 +101,7 @@ public class CustomerManager : MonoBehaviour
               {
                   Debug.Log("WIN");
                 
-                  currentCustomer.GetComponent<Rigidbody>().useGravity = false;
+                  //currentCustomer.GetComponent<Rigidbody>().useGravity = false;
                
                 won = true;
                 currentCustomer.GetComponent<CustomerInteraction>().Interact(currentCustomer.gameObject);
@@ -120,7 +120,7 @@ public class CustomerManager : MonoBehaviour
               }
             else if((currentCustomer.GetComponent<Effect>().GetEffectType() != customerWinCondition && currentCustomer.GetComponent<Effect>().GetEffectType() != secondCustomerWinCondition) && !(won || lose))
             {
-                currentCustomer.GetComponent<Rigidbody>().useGravity = false;
+                //currentCustomer.GetComponent<Rigidbody>().useGravity = false;
                 lose = true;
 
                 currentCustomer.GetComponent<CustomerInteraction>().Interact(currentCustomer.gameObject);
