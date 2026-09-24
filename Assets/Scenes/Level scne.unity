@@ -2950,7 +2950,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -5059,7 +5059,7 @@ PrefabInstance:
       objectReference: {fileID: 1805020968}
     - target: {fileID: 5817166317606329190, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: spells.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5817166317606329190, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: 'spells.Array.data[2]'
@@ -5077,6 +5077,10 @@ PrefabInstance:
       propertyPath: 'spells.Array.data[5]'
       value: 
       objectReference: {fileID: 7040179819619236004, guid: 312816c429d384e4a9514f8c7c71e721, type: 3}
+    - target: {fileID: 5817166317606329190, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: 'spells.Array.data[6]'
+      value: 
+      objectReference: {fileID: 7346162813372533892, guid: b6a9ea537ba2e484298598dc5c59a1a5, type: 3}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Name
       value: PlayerCapsule
@@ -11721,6 +11725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpellLearned
   spellLearnedText: {fileID: 735982302}
+  fadeTime: 1
 --- !u!4 &1683525565 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 407374, guid: d97974dd47e87374d939acde18eedd33, type: 3}

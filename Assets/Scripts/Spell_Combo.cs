@@ -69,7 +69,7 @@ public class Spell_Combo : MonoBehaviour
 
     private void UpdateText()
     {
-        word_ui.text = first_word + " + " + second_word + " = " + spell;
+        word_ui.text = first_word + " + " + second_word;
     }
 
     private void FindSpell()
