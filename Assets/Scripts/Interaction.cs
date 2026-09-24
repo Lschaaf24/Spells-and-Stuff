@@ -148,6 +148,6 @@ public class Interaction : MonoBehaviour
 
         removedMaterial = true;
         addedMaterial = false;
-        //interactedObject = null;
+        interactedObject = null;
     }
 }
