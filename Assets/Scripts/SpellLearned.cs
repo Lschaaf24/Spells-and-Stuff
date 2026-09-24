@@ -5,8 +5,11 @@ using UnityEngine;
 public class SpellLearned : MonoBehaviour
 {
     [SerializeField] private GameObject spellLearnedText;
-
+    [SerializeField] private float fadeTime = 1;
     private TextMeshProUGUI text;
+
+    private float increment;
+    private bool fadeIn;
 
     private void Start()
     {
@@ -15,10 +18,25 @@ public class SpellLearned : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if(fadeIn)
+        {
+            increment = Mathf.Lerp(0.0f, 1.0f, fadeTime * Time.deltaTime);
+        }
+        else
+        {
+            increment = Mathf.Lerp(1.0f, 0.0f, fadeTime * Time.deltaTime);
+        }
+    }
+
 
     public void textIn()
     {
-        StartCoroutine(FadeTextIn());
+        fadeIn = true;
+        text.color = new Color(text.color.r, text.color.g, text.color.b, increment);
+
+        //StartCoroutine(FadeTextIn());
     }
 
     public TextMeshProUGUI getText()
@@ -30,15 +48,13 @@ public class SpellLearned : MonoBehaviour
     {
         float speed = 1.0f / time;
 
-
-
         for (float t = 0.0f; t < 1.0; t += Time.deltaTime * speed)
         {
             float a = Mathf.Lerp(startLevel, endLevel, t);
             text.color = new Color(text.color.r,
                 text.color.g,
                 text.color.b, a);
-            yield return 0;
+            yield return null;
         }
     }
 
