@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpellLearned : MonoBehaviour
 {
     [SerializeField] private GameObject spellLearnedText;
-    [SerializeField] private float fadeTime = 1;
+    [SerializeField] private float fadeTime = 0.1f;
     private TextMeshProUGUI text;
 
     private float increment;
@@ -20,23 +20,15 @@ public class SpellLearned : MonoBehaviour
 
     private void Update()
     {
-        if(fadeIn)
-        {
-            increment = Mathf.Lerp(0.0f, 1.0f, fadeTime * Time.deltaTime);
-        }
-        else
-        {
-            increment = Mathf.Lerp(1.0f, 0.0f, fadeTime * Time.deltaTime);
-        }
+       
     }
 
 
     public void textIn()
     {
         fadeIn = true;
-        text.color = new Color(text.color.r, text.color.g, text.color.b, increment);
 
-        //StartCoroutine(FadeTextIn());
+        StartCoroutine(FadeTextIn());
     }
 
     public TextMeshProUGUI getText()
@@ -44,19 +36,48 @@ public class SpellLearned : MonoBehaviour
         return text;
     }
 
-    private IEnumerator Fade(float startLevel, float endLevel, float time)
+    private IEnumerator Fade(float startAlpha, float endAlpha, float duration)
     {
-        float speed = 1.0f / time;
+        float elapsed = 0f;
 
-        for (float t = 0.0f; t < 1.0; t += Time.deltaTime * speed)
+        while (elapsed < duration)
         {
-            float a = Mathf.Lerp(startLevel, endLevel, t);
-            text.color = new Color(text.color.r,
-                text.color.g,
-                text.color.b, a);
+            elapsed += Time.deltaTime;
+
+            float alpha = Mathf.Lerp(
+                startAlpha,
+                endAlpha,
+                elapsed / duration
+            );
+
+            SetAlpha(alpha);
+
             yield return null;
         }
+
+        SetAlpha(endAlpha);
     }
+    private void SetAlpha(float alpha)
+    {
+        Color color = text.color;
+        color.a = alpha;
+        text.color = color;
+    }
+
+
+    //private IEnumerator Fade(float startLevel, float endLevel, float time)
+    //{
+    //    float speed = 1.0f / time;
+
+    //    for (float t = 0.0f; t < 1.0; t += Time.deltaTime * speed)
+    //    {
+    //        float a = Mathf.Lerp(startLevel, endLevel, t);
+    //        text.color = new Color(text.color.r,
+    //            text.color.g,
+    //            text.color.b, a);
+    //        yield return null;
+    //    }
+    //}
 
     private IEnumerator FadeTextIn()
     {
@@ -64,6 +85,8 @@ public class SpellLearned : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         yield return StartCoroutine(Fade(1.0f, 0.0f, 1.0f));
 
+
+        
     }
 
 
