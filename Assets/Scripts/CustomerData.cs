@@ -8,4 +8,5 @@ public class CustomerData : ScriptableObject
 {
     public GameObject prefab;
     public string Spell;
+    public string SecondSpell;
 }

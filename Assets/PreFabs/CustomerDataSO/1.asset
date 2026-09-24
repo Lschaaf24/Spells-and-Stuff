@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CustomerData
   prefab: {fileID: 1344100721619664760, guid: 5bf32370f5f453f4aae3247403e0e26a, type: 3}
   Spell: levitate
+  SecondSpell: tall
