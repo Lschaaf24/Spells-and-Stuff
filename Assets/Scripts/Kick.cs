@@ -14,6 +14,8 @@ public class Kick : MonoBehaviour
 
     private GameObject kickObject;
 
+    [SerializeField] private Rigidbody rigidBody;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,6 +38,8 @@ public class Kick : MonoBehaviour
             textUI.SetActive(false);
             kickObject = null;
         }
+
+       
     }
 
     public void OnKick(InputValue value)
