@@ -14,6 +14,8 @@ public class Dialogue : MonoBehaviour
     private int index;
 
     public bool isTyping;
+    public bool Done = false;
+
 
     private void Start()
     {
@@ -51,6 +53,7 @@ public class Dialogue : MonoBehaviour
             return;
         }
 
+        Done = false;
         index = 0;
         gameObject.SetActive(true);
         lines = dialogueLines;
@@ -74,6 +77,7 @@ public class Dialogue : MonoBehaviour
         {
             UIManager.instance.setCurrentState(UIState.play);
 
+            Done = true;
             Debug.Log("DIALOGUE FINISHED");
         }
     }

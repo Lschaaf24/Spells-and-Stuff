@@ -1029,10 +1029,12 @@ MonoBehaviour:
   customers:
   - {fileID: 11400000, guid: c3a56910b21fdaa47b3355c7eb4196f1, type: 2}
   - {fileID: 11400000, guid: db84b3b5806aaf64788446444af105fc, type: 2}
+  - {fileID: 11400000, guid: 4aeab2d15195b9b4b8ab230c442ba227, type: 2}
   spawnPoint: {fileID: 982664431}
   won: 0
   lose: 0
   respawntimer: 5
+  dialogue: {fileID: 1043182791}
 --- !u!4 &83960171
 Transform:
   m_ObjectHideFlags: 0
@@ -5107,6 +5109,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5817166317606329190, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: 'spells.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7104424216607628915, guid: c3e89696314dc704ca4b154fe5bdbd03, type: 3}
+    - target: {fileID: 5817166317606329190, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: 'spells.Array.data[3]'
       value: 
       objectReference: {fileID: 7759832153350799463, guid: d2459ca20eeca90439b9cf30530bf578, type: 3}
@@ -7738,6 +7744,7 @@ MonoBehaviour:
   textComponent: {fileID: 1805020968}
   textSpeed: 0.01
   isTyping: 0
+  Done: 0
 --- !u!114 &1043182792
 MonoBehaviour:
   m_ObjectHideFlags: 0

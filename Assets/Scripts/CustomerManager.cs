@@ -10,12 +10,15 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] public bool won = false;
     [SerializeField] public bool lose = false;
     [SerializeField] private float respawntimer = 5;
+    [SerializeField] private Dialogue dialogue;
     private Customer currentCustomer;
     private Customer newCustomer;
     public Customer CurrentCustomer => currentCustomer;
+    private CustomerData data;
     private string customerWinCondition;
     private string secondCustomerWinCondition;
     private float timer = 0;
+    private int index = 0;
     void Start()
     {
         SpawnCustomer();
@@ -30,22 +33,29 @@ public class CustomerManager : MonoBehaviour
          {
              Destroy(currentCustomer);
          }*/
-        CustomerData data = customers[Random.Range(0,customers.Length)];
-
-        customerWinCondition = data.Spell;
-        secondCustomerWinCondition = data.SecondSpell;
-        newCustomer = Instantiate(
-        data.prefab,
-        spawnPoint.position,
-        spawnPoint.rotation
-        ).GetComponent<Customer>();
-        currentCustomer = newCustomer;
-
-        Debug.Log(secondCustomerWinCondition);
-
-        SoundManager.PlaySound(SoundType.NewCustomer, 0.1f);
 
 
+        if(index == 3)
+        {
+            index = 0;
+        }
+
+            data = customers[index];
+            index++;
+            customerWinCondition = data.Spell;
+            secondCustomerWinCondition = data.SecondSpell;
+
+        
+            newCustomer = Instantiate(
+            data.prefab,
+            spawnPoint.position,
+            spawnPoint.rotation
+            ).GetComponent<Customer>();
+            currentCustomer = newCustomer;
+
+            Debug.Log(secondCustomerWinCondition);
+
+            SoundManager.PlaySound(SoundType.NewCustomer, 0.1f);
     }
 
     // Update is called once per frame
@@ -58,7 +68,7 @@ public class CustomerManager : MonoBehaviour
             timer += Time.deltaTime;
         }
 
-        if(timer >= respawntimer)
+        if(timer >= respawntimer && dialogue.Done == true)
         {
             RespawnCustomer();
         }

@@ -137,14 +137,12 @@ MonoBehaviour:
   characterMeshes: {fileID: 7033653535188772475}
   meshes: []
   dialogueLines:
-  - HELLO THERE
-  - I NEED HELP
+  - Hey
+  - Got a challenge for you
   - i bet u couldnt turn me an animal
-  - u suck.
   winDialogueLines:
   - ...
   - damn
-  - u still suck
   loseDialogueLines:
   - As i thought.....
   poof: {fileID: 3601945442856682321}

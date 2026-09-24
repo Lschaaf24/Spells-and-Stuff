@@ -144,11 +144,12 @@ MonoBehaviour:
   - Find a spell to help me.
   winDialogueLines:
   - WOW IM not COLD....
-  - How long does this last?
+  - This is fine...
   loseDialogueLines:
-  - WRONG
+  - What have you done to me. :(
   - Prick
   poof: {fileID: 3601945442856682321}
+  currentCharacterMesh: {fileID: 0}
 --- !u!95 &3255834446705796823
 Animator:
   serializedVersion: 7

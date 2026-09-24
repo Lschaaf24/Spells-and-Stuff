@@ -11,7 +11,10 @@ public class PigEffect : Effect
     {
         effect_type = "pig";
         transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
-        GetComponentInChildren<ParticleSystem>().Play();
+        if (GetComponentInChildren<ParticleSystem>()) 
+        {
+            GetComponentInChildren<ParticleSystem>().Play();
+        }
         lifetime = 10.0f;
         if (tag == "Customer")
         {
@@ -20,8 +23,18 @@ public class PigEffect : Effect
         }
         else
         {
-            og_mesh = GetComponentInChildren<MeshFilter>().mesh;
-            og_materials = GetComponent<MeshRenderer>().materials;
+
+            if (GetComponent<MeshFilter>() != null)
+            {
+                og_mesh = GetComponent<MeshFilter>().mesh;
+                og_materials = GetComponent<MeshRenderer>().materials;
+            }
+            else 
+            {
+                og_mesh = GetComponentInChildren<MeshFilter>().mesh;
+                og_materials = GetComponent<MeshRenderer>().materials;
+            }
+           
         }
         og_scale = transform.localScale;
         transform.localScale = Vector3.one;
@@ -38,7 +51,10 @@ public class PigEffect : Effect
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             transform.localScale = Vector3.one;
             Destroy(this);
-            GetComponentInChildren<ParticleSystem>().Play();
+            if (GetComponentInChildren<ParticleSystem>())
+            {
+                GetComponentInChildren<ParticleSystem>().Play();
+            }
         }
     }
 
@@ -51,8 +67,18 @@ public class PigEffect : Effect
         }
         else
         {
-            GetComponent<MeshFilter>().mesh = pig.GetComponent<MeshFilter>().sharedMesh;
-            GetComponent<MeshRenderer>().materials = pig.GetComponent<MeshRenderer>().sharedMaterials;
+            if (pig.GetComponent<MeshFilter>() != null)
+            {
+                GetComponent<MeshFilter>().mesh = pig.GetComponent<MeshFilter>().sharedMesh;
+                GetComponent<MeshRenderer>().materials = pig.GetComponent<MeshRenderer>().sharedMaterials;
+            }
+            else
+            {
+                GetComponent<MeshFilter>().mesh = pig.GetComponentInChildren<MeshFilter>().sharedMesh;
+                GetComponent<MeshRenderer>().materials = pig.GetComponentInChildren<MeshRenderer>().sharedMaterials;
+            }
+
+            
 
         }
     }
