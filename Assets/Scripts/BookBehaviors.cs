@@ -35,6 +35,8 @@ public class BookBehaviors : MonoBehaviour
 
         bText.text = bookContents.paragraphText;
 
+        SoundManager.PlaySound(SoundType.BookOpen, 0.1f);
+
     }
 
     private void CloseBook()

@@ -45,7 +45,8 @@ public class BookText : MonoBehaviour, IPointerClickHandler
     private IEnumerator CollectWord(string word, int linkIndex)
     {
         isAnimating = true;
-     
+        SoundManager.PlaySound(SoundType.WordRip, 0.1f);
+
         Vector3 startPosition = GetLinkScreenPosition(linkIndex);
 
         Vector3 targetPosition = GetTargetScreenPosition();
@@ -58,6 +59,8 @@ public class BookText : MonoBehaviour, IPointerClickHandler
         floatingWord.transform.localScale = Vector3.one * floatingWordScale;
 
         yield return StartCoroutine(FlyToSpellbook(floatingWord, startPosition, targetPosition));
+
+       
 
         playerInput.ActivateInput();
         Destroy(floatingWord.gameObject);

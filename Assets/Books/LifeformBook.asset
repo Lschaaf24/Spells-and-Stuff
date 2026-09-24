@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c61ece42f7128948b788046a4b019ec, type: 3}
   m_Name: LifeformBook
   m_EditorClassIdentifier: Assembly-CSharp::BookContents
-  paragraphText: '<link="LIFEFORM"><color=#F73718>LIFEFORM</color></link> 101.  A
-    full historical study of organisms    '
+  paragraphText: 'The study of transfiguration. This will teach you how to change
+    the cells of a  <link="LIFEFORM"><color=#F73718>LIFEFORM</color></link> into
+    another being. '

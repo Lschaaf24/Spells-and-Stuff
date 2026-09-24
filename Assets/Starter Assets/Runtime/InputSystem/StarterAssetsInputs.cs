@@ -1,5 +1,11 @@
 using Codice.Client.BaseCommands;
 using UnityEngine;
+using System.Collections;
+
+
+using UnityEngine.EventSystems;
+
+using System;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -26,7 +32,8 @@ namespace StarterAssets
 		public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
-		}
+
+        }
 
 		public void OnLook(InputValue value)
 		{
@@ -39,7 +46,8 @@ namespace StarterAssets
 		public void OnJump(InputValue value)
 		{
 			JumpInput(value.isPressed);
-		}
+            
+        }
 
 		public void OnSprint(InputValue value)
 		{
@@ -67,6 +75,7 @@ namespace StarterAssets
 		{
 			jump = newJumpState;
             
+
         }
 
 		public void SprintInput(bool newSprintState)
