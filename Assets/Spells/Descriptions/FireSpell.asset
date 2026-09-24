@@ -16,4 +16,4 @@ MonoBehaviour:
   spellDescription: Casts a fireball projectile forwards, setting alight whatever
     it hits!
   wordCombo: Heat + Air
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 90546b8d486e72c4bad30b80eaa3ab8a, type: 3}

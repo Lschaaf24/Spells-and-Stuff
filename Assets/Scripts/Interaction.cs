@@ -1,5 +1,6 @@
 
 using UnityEditor.Profiling.Memory.Experimental;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -71,6 +72,19 @@ public class Interaction : MonoBehaviour
         else
         {
             UIManager.instance.setCurrentState(UIState.pause);
+        }
+    }
+
+    public void OnOpenSpellbook(InputValue value)
+    {
+        if(UIManager.instance.currentState == UIState.spellCatalogue) 
+        {
+            UIManager.instance.setCurrentState(UIState.play);
+
+        }
+        else
+        {
+            UIManager.instance.setCurrentState(UIState.spellCatalogue);
         }
     }
 

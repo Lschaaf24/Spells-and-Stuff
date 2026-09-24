@@ -12,6 +12,11 @@ public enum SoundType
     FireSpiritSpell,
     BirdSpell,
     FreezeSpell,
+    BookOpen,
+    WordRip,
+    Footstep,
+    Jump,
+
 
 
 

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c61ece42f7128948b788046a4b019ec, type: 3}
   m_Name: TransformBook
   m_EditorClassIdentifier: Assembly-CSharp::BookContents
-  paragraphText: Here Lies the memroies of young matt. <link="TRANSFORM"><color=#F73718>TRANSFORM</color></link>ers
-    was his favourite show. he loved optimus prime
+  paragraphText: The wizard ascended firetop mountain. In order to face the dragon
+    he would have to  <link="TRANSFORM"><color=#F73718>TRANSFORM</color></link> his
+    cowardice into courage.
