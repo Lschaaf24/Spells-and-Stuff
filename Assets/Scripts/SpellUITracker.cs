@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -13,12 +14,8 @@ public class SpellUITracker : MonoBehaviour
 
     [SerializeField] private SpellLearned spellLearned;
 
-    private void Update()
-    {
+    private List<string> learnedSpells = new List<string>(); 
 
-    }
-
-     
     public void learnSpell(string spellName)
     {
         
@@ -44,12 +41,23 @@ public class SpellUITracker : MonoBehaviour
 
                         TextMeshProUGUI text = spellLearned.getText();
                         text.text = "Spell Learned " + spellName;
+
+
                     }
                 }
             }
 
         }
-        spellLearned.textIn();
+
+        if (learnedSpells.Contains(spellName))
+        {
+
+        }
+        else
+        {
+            spellLearned.textIn();
+            learnedSpells.Add(spellName);
+        }
 
     }
 }

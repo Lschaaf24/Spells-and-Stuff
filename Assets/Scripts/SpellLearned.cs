@@ -47,17 +47,5 @@ public class SpellLearned : MonoBehaviour
 
     }
 
-    private IEnumerator FadeTextOut(float t)
-    {
-        text = spellLearnedText.GetComponent<TextMeshProUGUI>();
-
-        text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
-        while (text.color.a < 1.0f)
-        {
-            text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a + (Time.deltaTime / t));
-
-            yield return null;
-        }
-    }
 
 }
