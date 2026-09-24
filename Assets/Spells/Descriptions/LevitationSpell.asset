@@ -16,3 +16,4 @@ MonoBehaviour:
   spellDescription: 'Casts a tornado, lifting anything it holds! '
   wordCombo: Height + Air
   icon: {fileID: 21300000, guid: deb6fca85c537e74fbc4ca154bd9ed35, type: 3}
+  iconColor: {r: 0.58122694, g: 0.7528643, b: 0.7798742, a: 1}

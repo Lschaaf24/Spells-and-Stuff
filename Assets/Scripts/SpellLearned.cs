@@ -30,6 +30,8 @@ public class SpellLearned : MonoBehaviour
     {
         float speed = 1.0f / time;
 
+
+
         for (float t = 0.0f; t < 1.0; t += Time.deltaTime * speed)
         {
             float a = Mathf.Lerp(startLevel, endLevel, t);
@@ -43,6 +45,7 @@ public class SpellLearned : MonoBehaviour
     private IEnumerator FadeTextIn()
     {
         yield return StartCoroutine(Fade(0.0f, 1.0f, 1.0f));
+        yield return new WaitForSeconds(0.2f);
         yield return StartCoroutine(Fade(1.0f, 0.0f, 1.0f));
 
     }
