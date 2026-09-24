@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c61ece42f7128948b788046a4b019ec, type: 3}
   m_Name: AirBook
   m_EditorClassIdentifier: Assembly-CSharp::BookContents
-  paragraphText: This is a book about <link="AIR"><color=#ADD8E6>AIR</color></link>
+  paragraphText: The wizard of banterbery went to the barbers. it was a mistake,
+    he now has no h <link="AIR"><color=#ADD8E6>AIR</color></link>

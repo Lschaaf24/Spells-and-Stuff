@@ -43,6 +43,7 @@ public class Spell_Cast : MonoBehaviour
                     proj.effect_type = typeof(BurnEffect);
                     spell.transform.position += 2 * proj.direction;
                     spell_cast = true;
+                    SoundManager.PlaySound(SoundType.FireSpell, 0.1f);
 
                     break;
                 case ("levitate"):
@@ -54,16 +55,19 @@ public class Spell_Cast : MonoBehaviour
                         AreaEffector ae = spell.GetComponent<AreaEffector>();
                         ae.effect_type = typeof(LevitateEffect);
                         spell_cast = true;
-
+                        SoundManager.PlaySound(SoundType.LevitateSpell, 0.1f);
 
                     }
                     break;
                 case ("pig"):
                     if (Physics.Raycast(ray, out hit)) 
                     {
-                        hit.collider.gameObject.AddComponent<PigEffect>();
+                        if (!hit.collider.gameObject.GetComponent<PigEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable"))) 
+                        {
+                            hit.collider.gameObject.AddComponent<PigEffect>().SetPigMesh(spells[2]);
+                        }
                         spell_cast = true;
-
+                        SoundManager.PlaySound(SoundType.PigSpell, 0.1f);
                     }
                     break;
                 case ("tall"):
@@ -73,7 +77,7 @@ public class Spell_Cast : MonoBehaviour
                         {
                             Debug.Log(hit.collider.gameObject.AddComponent<TallEffect>().GetEffectType());
                             spell_cast = true;
-
+                            SoundManager.PlaySound(SoundType.TallSpell, 0.1f);
                         }
                     }
                     break;
@@ -85,17 +89,26 @@ public class Spell_Cast : MonoBehaviour
                             GameObject cop = hit.collider.gameObject.AddComponent<FreezeEffect>().SpawnCop(cop_prefab, spells[3]);
                             cop.GetComponent<Cop>().SetDialgoueText(dialogue_text);
                             spell_cast = true;
-
+                            SoundManager.PlaySound(SoundType.FreezeSpell, 0.1f);
                         }
                     }
                     break;
                 case ("bird"):
                     if (Physics.Raycast(ray, out hit))
                     {
-                        spell = Instantiate(spells[3], hit.collider.transform.position, Quaternion.identity.normalized);
-                        Destroy(hit.collider.gameObject);
-                        spell_cast = true;
+                        if (Physics.Raycast(ray, out hit))
+                        {
+                            if (!hit.collider.gameObject.GetComponent<BirdEffect>() && !hit.collider.gameObject.GetComponent<PigEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable")))
+                            {
+                                hit.collider.gameObject.AddComponent<BirdEffect>().SetBirdMesh(spells[5]);
+                            }
+                            spell_cast = true;
+                             
+                            SoundManager.PlaySound(SoundType.BirdSpell, 0.1f);
 
+                        }
+
+                       
                     }
                     break;
                 case ("cloud"):
@@ -106,6 +119,7 @@ public class Spell_Cast : MonoBehaviour
                     spell.transform.position += 2 * ray.direction;
                     spell.GetComponent<FollowPlayer>().SetTarget(this.transform.parent.gameObject);
                     spell_cast = true;
+                    SoundManager.PlaySound(SoundType.FireSpiritSpell, 0.1f);
                     break;
             }
 
@@ -113,6 +127,7 @@ public class Spell_Cast : MonoBehaviour
             if (spell_cast)
             {
                 GetComponent<Spell_Combo>().ResetWords();
+               
             }
         }
         else { _input.cast = false; }

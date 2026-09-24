@@ -2,17 +2,16 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PigEffect : Effect
+public class BirdEffect : Effect
 {
     Mesh og_mesh;    // Start is called once before the first execution of Update after the MonoBehaviour is created
     Material[] og_materials;
     Vector3 og_scale;
     void Awake()
     {
-        effect_type = "pig";
-        transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
+        effect_type = "bird";
         GetComponentInChildren<ParticleSystem>().Play();
-        lifetime = 10.0f;
+        lifetime = 4.0f;
         og_mesh = GetComponentInChildren<MeshFilter>().mesh;
         og_materials = GetComponent<MeshRenderer>().materials;
         og_scale = transform.localScale;
@@ -25,18 +24,17 @@ public class PigEffect : Effect
         lifetime -= Time.deltaTime;
         if(lifetime < 0) 
         {
+            GetComponentInChildren<ParticleSystem>().Play();
             GetComponent<MeshFilter>().mesh = og_mesh;
             GetComponent<MeshRenderer>().materials = og_materials;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             transform.localScale = Vector3.one;
             Destroy(this);
-            GetComponentInChildren<ParticleSystem>().Play();
         }
     }
 
-    public void SetPigMesh(GameObject pig) 
+    public void SetBirdMesh(GameObject bird) 
     {
-       GetComponent<MeshFilter>().mesh = pig.GetComponent<MeshFilter>().sharedMesh;
-       GetComponent<MeshRenderer>().materials = pig.GetComponent<MeshRenderer>().sharedMaterials;
+       GetComponent<MeshFilter>().mesh = bird.GetComponentInChildren<MeshFilter>().sharedMesh;
+       GetComponent<MeshRenderer>().materials = bird.GetComponentInChildren<MeshRenderer>().sharedMaterials;
     }
 }
