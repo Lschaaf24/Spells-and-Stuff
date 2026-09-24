@@ -43,7 +43,7 @@ public class CustomerManager : MonoBehaviour
 
         Debug.Log(secondCustomerWinCondition);
 
-        SoundManager.PlaySound(SoundType.NewCustomer, 0.1f);
+       //SoundManager.PlaySound(SoundType.NewCustomer, 0.1f);
 
 
     }
@@ -73,6 +73,8 @@ public class CustomerManager : MonoBehaviour
             Destroy(currentCustomer.gameObject);
             currentCustomer = null;
         }
+
+        SoundManager.PlaySound(SoundType.NewCustomer, 0.1f);
 
         SpawnCustomer();
     }
