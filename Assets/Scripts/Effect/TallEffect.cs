@@ -9,15 +9,16 @@ public class TallEffect : Effect
 
     bool applied = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
         effect_type = "tall";
+        Debug.Log("Created: " + effect_type);
         current_scale = transform.localScale;
         target_scale = new Vector3(current_scale.x, current_scale.y * 2, current_scale.z);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if(applied) return;
 

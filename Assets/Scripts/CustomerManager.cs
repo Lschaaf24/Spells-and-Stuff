@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -8,11 +9,13 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] public bool won = false;
     [SerializeField] public bool lose = false;
-    
+    [SerializeField] private float respawntimer = 5;
     private Customer currentCustomer;
+    private Customer newCustomer;
     public Customer CurrentCustomer => currentCustomer;
     private string customerWinCondition;
-
+    private string secondCustomerWinCondition;
+    private float timer = 0;
     void Start()
     {
         SpawnCustomer();
@@ -20,18 +23,25 @@ public class CustomerManager : MonoBehaviour
 
     private void SpawnCustomer()
     {
-
-        if(currentCustomer != null)
-        {
-            Destroy(currentCustomer);
-        }
-        
+        won = false;
+        lose = false;
+        timer = 0;
+        /* if(currentCustomer != null)
+         {
+             Destroy(currentCustomer);
+         }*/
         CustomerData data = customers[Random.Range(0,customers.Length)];
 
         customerWinCondition = data.Spell;
-        currentCustomer = Instantiate(data.prefab,spawnPoint).GetComponent<Customer>();
+        secondCustomerWinCondition = data.SecondSpell;
+        newCustomer = Instantiate(
+        data.prefab,
+        spawnPoint.position,
+        spawnPoint.rotation
+        ).GetComponent<Customer>();
+        currentCustomer = newCustomer;
 
-        Debug.Log(customerWinCondition);
+        Debug.Log(secondCustomerWinCondition);
 
         
 
@@ -41,15 +51,38 @@ public class CustomerManager : MonoBehaviour
     void Update()
     {
         checkSpell();
+
+        if (won || lose)
+        {
+            timer += Time.deltaTime;
+        }
+
+        if(timer >= respawntimer)
+        {
+            RespawnCustomer();
+        }
+
+
+    }
+
+    private void RespawnCustomer()
+    {
+        if (currentCustomer != null)
+        {
+            Destroy(currentCustomer.gameObject);
+            currentCustomer = null;
+        }
+
+        SpawnCustomer();
     }
 
     public void checkSpell()
     {
           if (currentCustomer.GetComponent<Effect>() != null)
           {
+              
 
-              Debug.Log("SPELL ON CUSTOMER CAST");
-              if(currentCustomer.GetComponent<Effect>().GetEffectType() == customerWinCondition && !won)
+              if((currentCustomer.GetComponent<Effect>().GetEffectType() == customerWinCondition || currentCustomer.GetComponent<Effect>().GetEffectType() == secondCustomerWinCondition) && !(won || lose))
               {
                   Debug.Log("WIN");
                 
@@ -62,17 +95,33 @@ public class CustomerManager : MonoBehaviour
                      currentCustomer.GetComponent<CustomerInteraction>().StartWinCustomerDialogue(currentCustomer);
                      dialogue_started = true;
                  }*/
-            /*    Destroy(currentCustomer.gameObject);
+                /*if(UIManager.instance.currentState != UIState.dialogue)
+                {
+                    Destroy(currentCustomer.gameObject);
 
-                SpawnCustomer();*/
+                    SpawnCustomer();
+                }*/
 
-            }
-            else
+              }
+            else if((currentCustomer.GetComponent<Effect>().GetEffectType() != customerWinCondition && currentCustomer.GetComponent<Effect>().GetEffectType() != secondCustomerWinCondition) && !(won || lose))
             {
+                currentCustomer.GetComponent<Rigidbody>().useGravity = false;
                 lose = true;
-                Debug.Log("LOSE");
-              /*  Destroy(currentCustomer.gameObject);
-                SpawnCustomer();*/
+
+                currentCustomer.GetComponent<CustomerInteraction>().Interact(currentCustomer.gameObject);
+                Debug.Log(currentCustomer.GetComponent<Effect>().GetEffectType());
+                Debug.Log(currentCustomer.GetComponent<Effect>() != null);
+                
+                /*if (UIManager.instance.currentState != UIState.dialogue)
+                {
+                    Destroy(currentCustomer.gameObject);
+
+                    SpawnCustomer();
+                }*/
+                /*  Destroy(currentCustomer.gameObject);
+                    SpawnCustomer();*/
+                
+
             }
 
                

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3923768813848599355}
   - component: {fileID: 4451213877191771460}
   m_Layer: 6
-  m_Name: Customer
+  m_Name: Pig_Customer
   m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,6 +73,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -136,11 +137,12 @@ MonoBehaviour:
   dialogueLines:
   - HELLO THERE
   - I NEED HELP
-  - I need to reach the top shelf at my house.
-  - Find a spell to help me.
+  - My husand been acting like a pig.......sooooo....
+  - make him one
   winDialogueLines:
-  - WOW IM FLYING....
-  - How long does this last?
+  - ...
+  - Did he change?
+  - cant tell...
   loseDialogueLines:
   - WRONG
   poof: {fileID: 3601945442856682321}

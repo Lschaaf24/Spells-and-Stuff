@@ -15,7 +15,6 @@ public class CustomerInteraction : MonoBehaviour
     private Dialogue dialogue;
     [SerializeField] private FirstPersonController firstPersonController;
     private bool once = false;
-
     Coroutine smoothMove = null;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,7 +23,7 @@ public class CustomerInteraction : MonoBehaviour
         //Interact(customer.getRoot());
         customerManager = FindFirstObjectByType<CustomerManager>();
         firstPersonController = FindFirstObjectByType<FirstPersonController>();
-        dialogue = FindFirstObjectByType<Dialogue>();
+        dialogue = FindFirstObjectByType<Dialogue>(FindObjectsInactive.Include);
         Debug.Log(dialogue);
         dialogue.gameObject.SetActive(false);
 
@@ -45,15 +44,18 @@ public class CustomerInteraction : MonoBehaviour
 
         firstPersonController.enabled = true;
 
-        if (customerManager.won == true)
+        if (customerManager.won == true && customerManager.lose == false && !once)
         {
             StartWinCustomerDialogue(customer);
+            once = true;
         }
-        else if (customerManager.won == false && customerManager.lose == true)
+        else if (customerManager.won == false && customerManager.lose == true && !once)
         {
             StartLoseCustomerDialogue(customer);
+            once = true;
+
         }
-        else if (customerManager.won == false && once == false)
+        else if (customerManager.won == false && customerManager.lose == false)
         {
             StartCustomerDialogue(customer);
         }
@@ -62,6 +64,7 @@ public class CustomerInteraction : MonoBehaviour
 
     public void StartCustomerDialogue(Customer customer)
     {
+        
         UIManager.instance.setCurrentState(UIState.dialogue);
         dialogue.StartDialogue(customer.DialogueLines);
 
