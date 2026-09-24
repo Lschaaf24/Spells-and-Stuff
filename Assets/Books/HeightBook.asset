@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c61ece42f7128948b788046a4b019ec, type: 3}
   m_Name: HeightBook
   m_EditorClassIdentifier: Assembly-CSharp::BookContents
-  paragraphText: This is a book about <link="HEIGHT"><color=#F73718>HEIGHT</color></link>
+  paragraphText: 'The wizard of slough went to the zoo. He was amazed at the  <link="HEIGHT"><color=#F73718>HEIGHT</color></link>
+    of the girrafes. The end. '

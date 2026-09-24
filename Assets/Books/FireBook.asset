@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c61ece42f7128948b788046a4b019ec, type: 3}
   m_Name: FireBook
   m_EditorClassIdentifier: Assembly-CSharp::BookContents
-  paragraphText: This is a book about <link="HEAT"><color=#F73718>HEAT</color></link>
+  paragraphText: The Wonderful wacky wizard fell down to hell. He could not handle
+    the  <link="HEAT"><color=#F73718>HEAT</color></link>. Only his staff remains
+    from that treacherous journey. :(

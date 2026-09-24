@@ -4,7 +4,17 @@ using UnityEngine;
 
 public enum SoundType
 {
-    PlayerJump,
+    NewCustomer,
+    FireSpell,
+    LevitateSpell,
+    PigSpell,
+    TallSpell,
+    FireSpiritSpell,
+    BirdSpell,
+    FreezeSpell,
+
+
+
 }
 
 [ExecuteInEditMode]
