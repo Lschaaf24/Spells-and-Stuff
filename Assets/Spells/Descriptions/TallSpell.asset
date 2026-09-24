@@ -15,4 +15,4 @@ MonoBehaviour:
   spellName: Tall
   spellDescription: 6ft btw
   wordCombo: Height + Transform
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 37ed8902a7bbaa74eb37bbe762bb17bf, type: 3}

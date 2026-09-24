@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject bookUI;
     [SerializeField] private GameObject pauseGameUI;
     [SerializeField] private GameObject dialogueUI;
+    [SerializeField] private GameObject spellCatalogueUI;
     [SerializeField] private FirstPersonController firstPersonController;
 
     public UIState currentState = UIState.play;
@@ -26,6 +27,7 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        currentState = UIState.play;
     }
 
     void Update()
@@ -50,10 +52,17 @@ public class UIManager : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 break;
 
+            case UIState.spellCatalogue:
+                spellCatalogueUI.SetActive(true);
+                firstPersonController.enabled = false;
+                Cursor.lockState = CursorLockMode.None;
+                break;
+
             case UIState.play:
                 dialogueUI.SetActive(false);
                 bookUI.SetActive(false);
                 pauseGameUI.SetActive(false);
+                spellCatalogueUI.SetActive(false);
                 firstPersonController.enabled = true;
                 Cursor.lockState = CursorLockMode.Locked;
                 break;

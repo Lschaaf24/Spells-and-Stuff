@@ -16,6 +16,8 @@ public class Spell_Cast : MonoBehaviour
     [SerializeField] private GameObject cop_prefab;
     [SerializeField] private TextMeshProUGUI dialogue_text;
 
+    [SerializeField] private SpellUITracker spellTracker;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,6 +45,7 @@ public class Spell_Cast : MonoBehaviour
                     proj.effect_type = typeof(BurnEffect);
                     spell.transform.position += 2 * proj.direction;
                     spell_cast = true;
+                    spellTracker.learnSpell("Fire");
 
                     break;
                 case ("levitate"):
