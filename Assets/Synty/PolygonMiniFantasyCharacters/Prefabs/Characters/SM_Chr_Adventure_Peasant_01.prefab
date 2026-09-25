@@ -4196,7 +4196,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404823412658210}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 45c3848418decf7449815f900620c8c2, type: 3}
+  m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -4222,11 +4222,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Customer
   customerRoot: {fileID: 1427902884143240}
+  characterMeshes: {fileID: 0}
   meshes: []
   dialogueLines: []
   winDialogueLines: []
   loseDialogueLines: []
   poof: {fileID: 0}
+  currentCharacterMesh: {fileID: 0}
 --- !u!1 &1415646826773858
 GameObject:
   m_ObjectHideFlags: 0

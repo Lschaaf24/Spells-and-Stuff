@@ -95,9 +95,10 @@ public class Spell_Cast : MonoBehaviour
                         if (!hit.collider.gameObject.GetComponent<FreezeEffect>() && (hit.collider.gameObject.layer == LayerMask.NameToLayer("Spellable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Interactable")))
                         {
                             GameObject cop = hit.collider.gameObject.AddComponent<FreezeEffect>().SpawnCop(cop_prefab, spells[3]);
-                            cop.GetComponent<Cop>().SetDialgoueText(dialogue_text);
+                            dialogue_text.text = "FREEZE!!!!";
                             spell_cast = true;
                             SoundManager.PlaySound(SoundType.FreezeSpell, 0.1f);
+                            UIManager.instance.setCurrentState(UIState.dialogue);
                             spellTracker.learnSpell("Freeze");
 
                         }

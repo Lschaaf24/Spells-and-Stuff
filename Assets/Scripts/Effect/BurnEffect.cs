@@ -8,7 +8,7 @@ public class BurnEffect : Effect
     {
         effect_type = "fire";
         MaterialPropertyBlock props = new MaterialPropertyBlock();
-        props.SetColor("_BaseColor", Color.red);
+        props.SetColor("_Color", Color.red);
         
         if(tag == "Customer")
         {

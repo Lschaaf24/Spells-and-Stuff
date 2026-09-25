@@ -16,8 +16,7 @@ public class Cop : MonoBehaviour
             transform.position = hit.point;
         }
 
-        UIManager.instance.setCurrentState(UIState.dialogue);
-        dialogue_text.text = "FREEZE!!!!";
+        
 
     }
     // Update is called once per frame
