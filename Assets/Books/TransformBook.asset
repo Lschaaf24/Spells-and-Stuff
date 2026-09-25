@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TransformBook
   m_EditorClassIdentifier: Assembly-CSharp::BookContents
   paragraphText: The wizard ascended firetop mountain. In order to face the dragon
-    he would have to  <link="TRANSFORM"><color=#F73718>TRANSFORM</color></link> his
+    he would have to  <link="TRANSFORM"><color=#7F00FF>TRANSFORM</color></link> his
     cowardice into courage.

@@ -22,6 +22,7 @@ public class BookText : MonoBehaviour, IPointerClickHandler
     private bool isAnimating = false;
 
     private Canvas canvas;
+    private Color wordColor;
 
     private void Awake()
     {

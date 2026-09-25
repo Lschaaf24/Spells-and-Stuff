@@ -140,14 +140,13 @@ MonoBehaviour:
   dialogueLines:
   - HELLO THERE
   - I NEED HELP
-  - Im cold
-  - Find a spell to help me.
+  - BRRRRRRR. I'm cold
+  - Find a spell to warm me up
   winDialogueLines:
-  - WOW IM not COLD....
+  - WOW I'm not COLD....
   - This is fine...
   loseDialogueLines:
-  - What have you done to me. :(
-  - Prick
+  - What have you done to me  :(
   poof: {fileID: 3601945442856682321}
   currentCharacterMesh: {fileID: 0}
 --- !u!95 &3255834446705796823

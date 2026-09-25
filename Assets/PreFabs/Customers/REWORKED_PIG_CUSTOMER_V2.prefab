@@ -139,12 +139,12 @@ MonoBehaviour:
   dialogueLines:
   - Hey
   - Got a challenge for you
-  - i bet u couldnt turn me into an animal
+  - I bet you couldn't turn me into an animal
   winDialogueLines:
   - ...
-  - well, damn
+  - OINK OINK
   loseDialogueLines:
-  - As i thought.....
+  - As I thought.....
   poof: {fileID: 3601945442856682321}
   currentCharacterMesh: {fileID: 0}
 --- !u!95 &3255834446705796823
